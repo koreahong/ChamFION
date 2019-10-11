@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^searchData/$', views.searchData), 
     url(r'^squadform/$', views.squadform), 
     url(r'^recommend/$', views.recommend),  
+    url(r'^takeplayer/$', views.take),  
       
 ]

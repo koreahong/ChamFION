@@ -4,30 +4,21 @@
   <head>
     <title>ChamFION &mdash; 피파온라인분석사이트</title>
     <meta charset="utf-8">
-   <!--  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-    
-    
+    <!--  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet"> -->
-	<link rel="stylesheet" href='{% static "fonts/icomoon/style.css" %}'>
-
+	  <link rel="stylesheet" href='{% static "fonts/icomoon/style.css" %}'>
     <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
     <link rel="stylesheet" href='{% static "css/jquery-ui.css" %}'>
     <link rel="stylesheet" href='{% static "css/owl.carousel.min.css" %}'>
     <link rel="stylesheet" href='{% static "css/owl.theme.default.min.css" %}'>
     <link rel="stylesheet" href='{% static "css/owl.theme.default.min.css" %}'>
-
     <link rel="stylesheet" href='{% static "css/jquery.fancybox.min.css" %}'>
-
     <link rel="stylesheet" href='{% static "css/bootstrap-datepicker.css" %}'>
-
     <link rel="stylesheet" href='{% static "fonts/flaticon/font/flaticon.css" %}'>
-
     <link rel="stylesheet" href='{% static "css/aos.css" %}'>
-
     <link rel="stylesheet" href='{% static "css/style.css" %}'>
-   
     <link rel="stylesheet" href='{% static "css/formation.css" %}'>
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
        <script>
              // using jQuery csrftoken
               function getCookie(name) {
@@ -125,7 +116,7 @@
     </header>
 
     <div class="intro-section single-cover" id="home-section">
-      <div class="slide-1 " style="" data-stellar-background-ratio="0.5">
+      <div class="slide-1 "  data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center">
           <div class = "col-9">
@@ -136,17 +127,16 @@
             <div class="col-3">
               <div class="row">
               	<div class="col-10">
-              	  		<form action="/myapp/search/" method="post" >{% csrf_token %}	
+              	  <form action="/myapp/search/" method="post" >{% csrf_token %}	
 	                    <div class="form-group">
 	                      <input type="text" class="form-control" placeholder="닉네임을 입력해 주세요" name="irum">
 	                    </div>
 	                  </div>
               		<div class="col-2">
-                  
-	                    <div class="form-group">
-	                      <input type="submit" class="btn btn-primary btn-pill" value="검색">
+	                  <div class="form-group">
+	                    <input type="submit" class="btn btn-primary btn-pill" value="검색">
 	                    </div>
-	                    </div>
+	                  </div>
                  	</form>
               </div>
             </div>
@@ -219,9 +209,7 @@
                      
                 <h3 class="text-black">선수비교</h3>
                 <table id="tablList" border="1"></table>
-                <div id="playerlist">
                 
-                </div>
             
             </div> <!-- right block end -->
 
@@ -235,6 +223,7 @@
 
 
         <script>
+
             $('#selectbox').change( function() {
                 $.ajax({
                     url:'/myapp/squadform/',
@@ -247,7 +236,7 @@
                 });
             })
 
-            function check(i){
+            function recoplayer(i){
              $(function () {
               //동적으로 원격에 있는 JSON 파일(결과값)을 로드
               $.ajax({
@@ -259,8 +248,8 @@
                   $('#tablList').append("<th>IMG</th><th>Season</th><th> Name </th><th>Pay</th><th>OVR</th>");
 
                   $.each(data, function (index, entry) {
-                    $('#tablList').append("<tr><td>" + "<img src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/"+entry["Pnum"]+".png?rd=201910080430\">" + "</td><td>" + "<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+entry["Season"]+".png\">" + "</td><td>" + entry["Name"] + "</td><td>" + entry["Pay"] + "</td><td>" + entry["OVR"] + "</td></tr>");
-
+                    $('#tablList').append("<tr onclick=\"takeplayer(\'"+entry["Season"]+"\',\'"+i+"\',\'"+entry["Pnum"]+"\',\'"+entry["Mark"]+"\',\'"+entry["Name"]+"\')\"><td>" + "<img src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/"+entry["Pnum"]+".png?rd=201910080430\">" + "</td><td>" + "<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+entry["Season"]+".png\">" + "</td><td>" + entry["Name"] + "</td><td>" + entry["Pay"] + "</td><td>" + entry["OVR"] + "</td></tr>");
+                    
                   });
                 },
                 error: function () { alert("에러발생"); }
@@ -268,11 +257,41 @@
             });
             }
 
+            function takeplayer(season,i,Pnum,Mark,Name){
+              alert(season+","+i+","+Pnum)
+              
+              $(function () {
+              //동적으로 원격에 있는 JSON 파일(결과값)을 로드
+              $.ajax({
+                url: "/myapp/takeplayer/",
+                dataType: "json",
+                success: function (data) {
+                  //받아온 JSON을 테이블에 출력
+                  $('#formationPlayer'+i).html("");
+                  $('#formationPlayer'+i).append("<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+season+".png\" width=\"120\" height=\"120\" onclick=\"searchplayer(i)\">");
+                  $('#formationPlayer'+i).append("<img style=\"position: absolute; top: 15%;left:40%;\" src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/"+Pnum+".png?rd=201910080430\" width=\"72\" height=\"72\" onclick=\"searchplayer(i)\">");
+                  $('#formationPlayer'+i).append("<img style=\"position: absolute; top: 57%;left:10%;\" src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+Mark+"_big.png\" width=\"18px\" height=\"18px\" onclick=\"searchplayer(i)\">");
+                },
+                error: function () { alert("에러발생"); }
+              });
+            });
 
-              function checker(i){
-              alert("Player"+i)
             }
 
+            function takeplayer2(name,k){
+            var jsonLocation = '/static/images/background.json';
+
+            $.getJSON(jsonLocation, function(data){
+
+              $.each(data, function(I, item){
+
+              console.log(item.seasonId);
+
+              });
+
+            });
+
+            }
 
             
 

@@ -28,7 +28,7 @@ def squadform(request):
     
     for i in range(1,12):
         html +="                       <div id =\"formationPlayer"+ str(i) +"\">"
-        html +="                            <img src='/static/images/c000.png'  width=\"120\" height=\"120\" onclick=\"check("+str(i)+")\"></img>"
+        html +="                            <img src='/static/images/c000.png'  width=\"120\" height=\"120\" onclick=\"recoplayer("+str(i)+")\"></img>"
         html +="                        </div>"        
     
     html +="                   </div>"
@@ -39,7 +39,13 @@ def squadform(request):
 
 def recommend(request):
     
-    context= {"Pnum":"p214100","Season":"HOT","Name":"굴리트","Pay":"22","OVR":"99"},{"Pnum":"p1109","Season":"HOT","Name":"말디니","Pay":"21","OVR":"98"},{"Pnum":"p101004231","Season":"ICON","Name":"히바우두","Pay":"25","OVR":"107"}
+    context= {"Pnum":"p214100","Season":"TT","Name":"굴리트","Pay":"22","OVR":"99","Mark":"TT"},{"Pnum":"p1109","Season":"NHD","Name":"말디니","Pay":"21","OVR":"98","Mark":"NHD"},{"Pnum":"p101004231","Season":"ICON","Name":"히바우두","Pay":"25","OVR":"107","Mark":"ICON"}
+ 
+    return HttpResponse(json.dumps(context), "application/json")
+
+def take(request):
+    
+    context= {}
  
     return HttpResponse(json.dumps(context), "application/json")
 
