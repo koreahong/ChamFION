@@ -8,8 +8,27 @@ def IndexFunc(request):
     return render(request, 'index.html')
 
 def SearchFunc(request):
-    irum = request.POST["irum"]
-    return render(request, 'search.html', {'name':irum})
+    
+    if request.POST["irum"] is None:
+        
+        return render(request, 'search.html', {'name':""})
+    else :
+        irum = request.POST["irum"]
+        return render(request, 'search.html', {'name':irum})
+
+    
+def topplayerFunc(request):
+    return render(request, 'TopPlayer.html')
+
+def TOPatkFunc(request):
+    return render(request, 'TOPatk.html')
+def TOPmidFunc(request):
+    return render(request, 'TOPmid.html')
+def TOPdefFunc(request):
+    return render(request, 'TOPdef.html')
+
+def analysisFunc(request):
+    return render(request, 'Analysis.html')
 
 def ajaxproject(request):
     template = loader.get_template('test.html')

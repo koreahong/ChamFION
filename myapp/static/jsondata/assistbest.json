@@ -1,0 +1,92 @@
+[
+  {
+    "num": 0,
+    "spId": "211192985",
+    "spGrade": "1",
+    "seasonName": "19TOTY",
+    "name": "K. 더브라위너",
+    "spPosition": "18",
+    "assist": "0.3913988162133813"
+  },
+  {
+    "num": 1,
+    "spId": "214190045",
+    "spGrade": "1",
+    "seasonName": "TC",
+    "name": "J. 크라위프",
+    "spPosition": "18",
+    "assist": "0.37254598856082854"
+  },
+  {
+    "num": 2,
+    "spId": "210195864",
+    "spGrade": "3",
+    "seasonName": "GR",
+    "name": "P. 포그바",
+    "spPosition": "18",
+    "assist": "0.32859991540274336"
+  },
+  {
+    "num": 3,
+    "spId": "207214100",
+    "spGrade": "5",
+    "seasonName": "TT",
+    "name": "R. 굴리트",
+    "spPosition": "18",
+    "assist": "0.32516235917826375"
+  },
+  {
+    "num": 4,
+    "spId": "207214100",
+    "spGrade": "3",
+    "seasonName": "TT",
+    "name": "R. 굴리트",
+    "spPosition": "18",
+    "assist": "0.3182813488394725"
+  },
+  {
+    "num": 5,
+    "spId": "207214100",
+    "spGrade": "4",
+    "seasonName": "TT",
+    "name": "R. 굴리트",
+    "spPosition": "18",
+    "assist": "0.3126107792293048"
+  },
+  {
+    "num": 6,
+    "spId": "207037576",
+    "spGrade": "4",
+    "seasonName": "TT",
+    "name": "호나우두",
+    "spPosition": "25",
+    "assist": "0.31003338422918664"
+  },
+  {
+    "num": 7,
+    "spId": "207037576",
+    "spGrade": "5",
+    "seasonName": "TT",
+    "name": "호나우두",
+    "spPosition": "26",
+    "assist": "0.30900243309002434"
+  },
+  {
+    "num": 8,
+    "spId": "211020801",
+    "spGrade": "1",
+    "seasonName": "19TOTY",
+    "name": "크리스티아누 호날두",
+    "spPosition": "24",
+    "assist": "0.3050217477263741"
+  },
+  {
+    "num": 9,
+    "spId": "207037576",
+    "spGrade": "3",
+    "seasonName": "TT",
+    "name": "호나우두",
+    "spPosition": "26",
+    "assist": "0.30436502703415536"
+  }
+]

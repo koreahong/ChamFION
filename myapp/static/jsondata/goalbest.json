@@ -1,0 +1,92 @@
+[
+  {
+    "num": 0,
+    "spId": "210192505",
+    "spGrade": "5",
+    "seasonName": "GR",
+    "name": "R. 루카쿠",
+    "spPosition": "25",
+    "goal": "0.622640013"
+  },
+  {
+    "num": 1,
+    "spId": "210186627",
+    "spGrade": "5",
+    "seasonName": "GR",
+    "name": "M. 발로텔리",
+    "spPosition": "25",
+    "goal": "0.619557937"
+  },
+  {
+    "num": 2,
+    "spId": "215020801",
+    "spGrade": "1",
+    "seasonName": "19TOTS",
+    "name": "크리스티아누 호날두",
+    "spPosition": "25",
+    "goal": "0.619181562"
+  },
+  {
+    "num": 3,
+    "spId": "211020801",
+    "spGrade": "1",
+    "seasonName": "19TOTY",
+    "name": "크리스티아누 호날두",
+    "spPosition": "25",
+    "goal": "0.616584674"
+  },
+  {
+    "num": 4,
+    "spId": "207020801",
+    "spGrade": "5",
+    "seasonName": "TT",
+    "name": "크리스티아누 호날두",
+    "spPosition": "25",
+    "goal": "0.601146925"
+  },
+  {
+    "num": 5,
+    "spId": "211020801",
+    "spGrade": "2",
+    "seasonName": "19TOTY",
+    "name": "크리스티아누 호날두",
+    "spPosition": "25",
+    "goal": "0.595298981"
+  },
+  {
+    "num": 6,
+    "spId": "216007512",
+    "spGrade": "1",
+    "seasonName": "HOT",
+    "name": "H. 크레스포",
+    "spPosition": "25",
+    "goal": "0.593190746"
+  },
+  {
+    "num": 7,
+    "spId": "207037576",
+    "spGrade": "5",
+    "seasonName": "TT",
+    "name": "호나우두",
+    "spPosition": "25",
+    "goal": "0.589300583"
+  },
+  {
+    "num": 8,
+    "spId": "214020801",
+    "spGrade": "1",
+    "seasonName": "TC",
+    "name": "크리스티아누 호날두",
+    "spPosition": "25",
+    "goal": "0.585536037"
+  },
+  {
+    "num": 9,
+    "spId": "207037576",
+    "spGrade": "4",
+    "seasonName": "TT",
+    "name": "호나우두",
+    "spPosition": "25",
+    "goal": "0.579229316"
+  }
+]

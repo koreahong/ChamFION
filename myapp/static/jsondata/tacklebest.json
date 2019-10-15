@@ -1,0 +1,92 @@
+[
+  {
+    "num": 0,
+    "spId": "214013038",
+    "spGrade": "1",
+    "seasonName": "TC",
+    "name": "C. 푸욜",
+    "spPosition": "4",
+    "tackle": "1.166028097"
+  },
+  {
+    "num": 1,
+    "spId": "210201535",
+    "spGrade": "1",
+    "seasonName": "GR",
+    "name": "R. 바란",
+    "spPosition": "6",
+    "tackle": "1.134828997"
+  },
+  {
+    "num": 2,
+    "spId": "210201535",
+    "spGrade": "2",
+    "seasonName": "GR",
+    "name": "R. 바란",
+    "spPosition": "4",
+    "tackle": "1.132113332"
+  },
+  {
+    "num": 3,
+    "spId": "207203376",
+    "spGrade":"4",
+    "seasonName": "TT",
+    "name": "V. 반데이크",
+    "spPosition": "4",
+    "tackle": "1.128254767"
+  },
+  {
+    "num": 4,
+    "spId": "207001183",
+    "spGrade": "5",
+    "seasonName": "TT",
+    "name": "F. 칸나바로",
+    "spPosition": "4",
+    "tackle": "1.100721371"
+  },
+  {
+    "num": 5,
+    "spId": "214203376",
+    "spGrade": "5",
+    "seasonName": "TC",
+    "name": "V. 반데이크",
+    "spPosition": "6",
+    "tackle": "1.100619195"
+  },
+  {
+    "num": 6,
+    "spId": "207155862",
+    "spGrade": "5",
+    "seasonName": "TT",
+    "name": "세르히오 라모스",
+    "spPosition": "4",
+    "tackle": "1.098598357"
+  },
+  {
+    "num": 7,
+    "spId": "207007289",
+    "spGrade": "5",
+    "seasonName": "TT",
+    "name": "R. 퍼디난드",
+    "spPosition": "6",
+    "tackle": "1.097791059"
+  },
+  {
+    "num": 8,
+    "spId": "215212218",
+    "spGrade": "3",
+    "seasonName": "19TOTS",
+    "name": "A. 라포르트",
+    "spPosition": "6",
+    "tackle": "1.095459767"
+  },
+  {
+    "num": 9,
+    "spId": "210201535",
+    "spGrade": "3",
+    "seasonName": "GR",
+    "name": "R. 바란",
+    "spPosition": "6",
+    "tackle": "1.09375351"
+  }
+]

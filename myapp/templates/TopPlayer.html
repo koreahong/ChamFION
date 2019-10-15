@@ -4,30 +4,21 @@
   <head>
     <title>ChamFION &mdash; 피파온라인분석사이트</title>
     <meta charset="utf-8">
-   <!--  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-    
-    
+    <!--  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet"> -->
-	<link rel="stylesheet" href='{% static "fonts/icomoon/style.css" %}'>
-
+	  <link rel="stylesheet" href='{% static "fonts/icomoon/style.css" %}'>
     <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
     <link rel="stylesheet" href='{% static "css/jquery-ui.css" %}'>
     <link rel="stylesheet" href='{% static "css/owl.carousel.min.css" %}'>
     <link rel="stylesheet" href='{% static "css/owl.theme.default.min.css" %}'>
     <link rel="stylesheet" href='{% static "css/owl.theme.default.min.css" %}'>
-
     <link rel="stylesheet" href='{% static "css/jquery.fancybox.min.css" %}'>
-
     <link rel="stylesheet" href='{% static "css/bootstrap-datepicker.css" %}'>
-
     <link rel="stylesheet" href='{% static "fonts/flaticon/font/flaticon.css" %}'>
-
     <link rel="stylesheet" href='{% static "css/aos.css" %}'>
-
     <link rel="stylesheet" href='{% static "css/style.css" %}'>
-   
     <link rel="stylesheet" href='{% static "css/formation.css" %}'>
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
        <script>
              // using jQuery csrftoken
               function getCookie(name) {
@@ -60,7 +51,71 @@
                 });
               });
         </script>
-  
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even){background-color: #f2f2f2}
+      tr:hover {background-color:#f5f5f5;}
+      th {
+        background-color: #4CAF50;  
+        color: white;
+      }
+      
+      #tabcontent {
+        display: block;
+        background-color: snow;
+        padding: 6px 12px;
+        color: black;
+      }
+
+      .tab {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+          }
+
+      #tabli_atk {
+          float: left;
+          display: inline-block;
+          color: black;
+          text-align: center;
+          text-decoration: none;
+          padding: 14px 16px;
+          font-size: 17px;
+        }
+
+      #tabli_mid {
+          float: left;
+          display: inline-block;
+          color:black;
+          text-align: center;
+          text-decoration: none;
+          padding: 14px 16px;
+          font-size: 17px;
+        }
+
+      #tabli_def {
+          float: left;
+          display: inline-block;
+          color: black;
+          text-align: center;
+          text-decoration: none;
+          padding: 14px 16px;
+          font-size: 17px;
+        }
+
+       
+ 
+    </style>
     
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -87,9 +142,9 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                 <li><a href="#home-section" class="nav-link">Home</a></li>
-                <li><a href="#courses-section" class="nav-link">Squad Maker</a></li>
-                <li><a href="#programs-section" class="nav-link">Top Player</a></li>
-                <li><a href="#teachers-section" class="nav-link">Analysis</a></li>
+                <li><a href="../index" class="nav-link">Squad Maker</a></li>
+                <li><a href="../analysis" class="nav-link">Analysis</a></li>
+                <li><a href="../topplayer" class="nav-link">Top Player</a></li>
               </ul>
             </nav>
           </div>
@@ -107,120 +162,170 @@
       
     </header>
 
-    <div class="intro-section single-cover" id="home-section">
-      
-      <div class="slide-1 " style="background-image: url('images/img_2.jpg');" data-stellar-background-ratio="0.5">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-12">
-              <div class="row justify-content-center align-items-center text-center">
-                <div class="col-lg-6">
-                  <fieldset id="search_fieldset"> 
-                  	<input id="search_input" type="search" /> 
-                  		<button id="search_button" type="submit">
-                  			<i class="fa fa-search"></i>
-                  		</button>
-                   </fieldset>
-                </div>
-
-                
-              </div>
-            </div>
-            
-          </div>
-        </div>
+    <div class="intro-section single-cover" id="home-section" style="height:0vh ; min-height: 80px;" >
+      <div class="slide-1 "  data-stellar-background-ratio="0.5">
+       
       </div>
     </div>
     
     <div class="site-section">
       <div class="container" style = "max-width: 1000px; margin-left:150px;" >
         <div class="row">
-          <div class="col-lg-8 mb-5">
-            <div class="mb-5">
-              <h3 class="text-black">스쿼드 메이커</h3>
-						              
-						
-						    <select id="selectbox" >
-						    <option value="">선택</option>
-						    <option value="f3412">3412</option>
-						    <option value="f343">343</option>
-						    <option value="f343_2">343_2</option>
-						    <option value="f3142">3142</option>
-						    <option value="f3232">3232</option>
-						    <option value="f31213">31213</option>
-						    <option value="f32212">32212</option>
-						    <option value="f433">433</option>
-						    <option value="f442">442</option>
-						    <option value="f433_2">433_2</option>
-						    <option value="f442_2">442_2</option>
-						    <option value="f4231">4231</option>
-						    <option value="f4123">4123</option>
-						    <option value="f4132">4132</option>
-						    <option value="f42211">42211</option>
-						    <option value="f424">424</option>
-						    <option value="f4312">4312</option>
-						    <option value="f4411">4411</option>
-						    <option value="f4213">4213</option>
-						    <option value="f451">451</option>
-						    <option value="f4123_2">4123_2</option>
-						    <option value="f4222">4222</option>
-						    <option value="f41212">41212</option>
-						    <option value="f41212_2">41212_2</option>
-						    <option value="f4213_2">4213_2</option>
-						    <option value="f4141">4141</option>
-						    <option value="f4321">4321</option>
-						    <option value="f5212">5212</option>
-						    <option value="f523">523</option>
-						    <option value="f532">532</option>
-						    <option value="f541">541</option>
-						    </select>
-						                           
-					
-              
-					<div>
-					<img src='{% static "images/grass.png" %}' width="770" height="750"></img>	
-						<div id= "squadformation"></div> 															
-					</div>
-					
-              
-            </div> <!--  mb-5 -->
+          <div class="col-lg-12">
+            <div> 
 
-    
+              <h3 class="text-black">Top Player </h3> 
+                <ul class ="tab">
+                  <li data-tab="TOPatk" class='tabmenu' id="tabli_atk"><a href="#">Goal/Game</a></li>
+                  <li data-tab="TOPmid" class='tabmenu' id="tabli_mid"><a href="#">Asisst/Game</a></li>
+                  <li data-tab="TOPdef" class='tabmenu' id="tabli_def"><a href="#">tackle/Game</a></li>
+                </ul>
+                <div id="tabcontent"></div>
+
             </div>
+              
+              
+          </div>
             
-            <div class="col-lg-2 mb-5">         
-              <!--  empty box ( 비율때문에 삽입) -->            
-            </div>
-            <div class="col-lg-2 mb-5">
-                     
-                <h3 class="text-black">선수비교</h3>
-                <div id="playerlist">
-                
-                </div>
-            
-            </div> <!-- right block end -->
-
-
-
-          </div> <!--  row end -->
+        </div> <!--  row end -->
   
-        </div>
       </div>
-    </div>
-
+    </div>  
+  </div>
+  
 
         <script>
-            $('#selectbox').change( function() {
-                $.ajax({
-                    url:'/myapp/squadform/',
-                    dataType:'json',
-                    type:'POST',
-                    data:{'msg':$('#selectbox').val()},
-                    success:function(result){
-                        $('#squadformation').html(result['msg']);
+          $(function() {
+            // tab operation
+            $('#tabli_atk').click(function() {
+              var activeTab = $(this).attr('data-tab');
+              $('.tabmenu').css('background-color', 'white'); // 안눌렀을때
+              $(this).css('background-color', 'snow');  // 눌렀을때
+              $.ajax({
+                type : 'GET',                 //get방식으로 통신
+                url : '{% static "jsondata/goalbest.json" %}',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+                dataType : "json",            //html형식으로 값 읽기
+                error : function() {          //통신 실패시
+                  alert('통신실패!');
+                },
+                success:function(data) {
+                  $('#tabcontent').html("");
+                  $('#tabcontent').append("<th>IMG</th><th>Season</th><th> Name </th><th>Grade</th><th>Goal</th>");
+                  $.each(data, function(index, entry) {
+                    $('#tabcontent').append("<tr>");
+                    if(entry["seasonName"] == "TC" || entry["seasonName"] == "GR" || entry["seasonName"] == "19TS" || entry["seasonName"] == "19TY" || entry["seasonName"] == "18A" || entry["seasonName"] == "18S")
+                      $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/playersAction/p"+entry["spId"]+".png?rd=201910080430\">" + "</td>");
+                    else{
+
+                      if(entry["spId"].substring(3,9).startsWith('0')){
+                        if(entry["spId"].substring(4,9).startsWith('0')){
+                          $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+entry["spId"].substring(5.9)+".png?rd=201910080430\">" + "</td>");
+                        }else{
+                          $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+entry["spId"].substring(4.9)+".png?rd=201910080430\">" + "</td>");
+                        }
+                      }else{
+                        $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+entry["spId"].substring(3.9)+".png?rd=201910080430\">" + "</td>");
+                      }
                     }
-                });
-            })
+                    $('#tabcontent').append("<td>" + "<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+entry["seasonName"]+".png\">" + "</td>");
+                    $('#tabcontent').append("<td>" + entry["name"] + "</td>");
+                    $('#tabcontent').append("<td>" + entry["spGrade"]  + "</td>");
+                    $('#tabcontent').append("<td>" + entry["goal"]  + "</td>");
+                    $('#tabcontent').append("</tr>");
+                  });
+                }
+              });
+            });
+            $('#tabli_atk').click();
+        });
+
+          $(function() {
+            // tab operation
+            $('#tabli_mid').click(function() {
+              var activeTab = $(this).attr('data-tab');
+              $('.tabmenu').css('background-color', 'white'); // 안눌렀을때
+              $(this).css('background-color', 'snow');  // 눌렀을때
+              $.ajax({
+                type : 'GET',                 //get방식으로 통신
+                url : '{% static "jsondata/assistbest.json" %}',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+                dataType : "json",            //html형식으로 값 읽기
+                error : function() {          //통신 실패시
+                  alert('통신실패!');
+                },
+                success:function(data) {
+                  $('#tabcontent').html("");
+                  $('#tabcontent').append("<th>IMG</th><th>Season</th><th> Name </th><th>Grade</th><th>assist</th>");
+                  $.each(data, function(index, entry) {
+                    $('#tabcontent').append("<tr>");
+                    if(entry["seasonName"] == "TC" || entry["seasonName"] == "GR" || entry["seasonName"] == "19TS" || entry["seasonName"] == "19TY" || entry["seasonName"] == "18A" || entry["seasonName"] == "18S")
+                      $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/playersAction/p"+entry["spId"]+".png?rd=201910080430\">" + "</td>");
+                    else{
+                      if(entry["spId"].substring(3,9).startsWith('0')){
+                        if(entry["spId"].substring(4,9).startsWith('0')){
+                          $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+entry["spId"].substring(5.9)+".png?rd=201910080430\">" + "</td>");
+                        }else{
+                          $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+entry["spId"].substring(4.9)+".png?rd=201910080430\">" + "</td>");
+                        }
+                      }else{
+                        $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+entry["spId"].substring(3.9)+".png?rd=201910080430\">" + "</td>");
+                      }
+                    }
+                      
+
+                    $('#tabcontent').append("<td>" + "<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+entry["seasonName"]+".png\">" + "</td>");
+                    $('#tabcontent').append("<td>" + entry["name"] + "</td>");
+                    $('#tabcontent').append("<td>" + entry["spGrade"]  + "</td>");
+                    $('#tabcontent').append("<td>" + entry["assist"]  + "</td>");
+                    $('#tabcontent').append("</tr>");
+                  });
+                }
+              });
+            });
+        });
+
+        $(function() {
+            // tab operation
+            $('#tabli_def').click(function() {
+              var activeTab = $(this).attr('data-tab');
+              $('.tabmenu').css('background-color', 'white'); // 안눌렀을때
+              $(this).css('background-color', 'snow');  // 눌렀을때
+              $.ajax({
+                type : 'GET',                 //get방식으로 통신
+                url : '{% static "jsondata/tacklebest.json" %}',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+                dataType : "json",            //html형식으로 값 읽기
+                error : function() {          //통신 실패시
+                  alert('통신실패!');
+                },
+                success:function(data) {
+                  $('#tabcontent').html("");
+                  $('#tabcontent').append("<th>IMG</th><th>Season</th><th> Name </th><th>Grade</th><th>tackle</th>");
+                  $.each(data, function(index, entry) {
+                    $('#tabcontent').append("<tr>");
+                    if(entry["seasonName"] == "TC" || entry["seasonName"] == "GR" || entry["seasonName"] == "19TS" || entry["seasonName"] == "19TY" || entry["seasonName"] == "18A" || entry["seasonName"] == "18S")
+                      $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/playersAction/p"+entry["spId"]+".png?rd=201910080430\" onerror=\"this.src='https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+entry["spId"].substring(4.9)+".png?rd=201910080430'\">" + "</td>");
+                    else{
+
+                      if(entry["spId"].substring(3,9).startsWith('0')){
+                        if(entry["spId"].substring(4,9).startsWith('0')){
+                          $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+entry["spId"].substring(5.9)+".png?rd=201910080430\">" + "</td>");
+                        }else{
+                          $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+entry["spId"].substring(4.9)+".png?rd=201910080430\">" + "</td>");
+                        }
+                      }else{
+                        $('#tabcontent').append("<td>" + "<img src=\"https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+entry["spId"].substring(3.9)+".png?rd=201910080430\">" + "</td>");
+                      }
+                    }
+
+                    $('#tabcontent').append("<td>" + "<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+entry["seasonName"]+".png\">" + "</td>");
+                    $('#tabcontent').append("<td>" + entry["name"] + "</td>");
+                    $('#tabcontent').append("<td>" + entry["spGrade"]  + "</td>");
+                    $('#tabcontent').append("<td>" + entry["tackle"]  + "</td>");
+                    $('#tabcontent').append("</tr>");
+                  });
+                }
+              });
+            });
+        });
         </script>
 
 
