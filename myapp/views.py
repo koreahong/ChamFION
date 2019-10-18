@@ -9,13 +9,15 @@ def IndexFunc(request):
 
 def SearchFunc(request):
     
-    if request.POST["irum"] is None:
+    if request.GET["ID"] is None:
         
-        return render(request, 'search.html', {'name':""})
+        return render(request, 'search.html', {'ID':""})
     else :
-        irum = request.POST["irum"]
-        return render(request, 'search.html', {'name':irum})
-
+        ID = request.GET["ID"]
+        return render(request, 'search.html', {'ID':ID})
+    
+def testtem(request):
+    return render(request, 'testtem.html')
     
 def topplayerFunc(request):
     return render(request, 'TopPlayer.html')
@@ -28,7 +30,12 @@ def TOPdefFunc(request):
     return render(request, 'TOPdef.html')
 
 def analysisFunc(request):
-    return render(request, 'Analysis.html')
+    if request.GET["ID"] is None:
+        
+        return render(request, 'Analysis.html', {'ID':""})
+    else :
+        ID = request.GET["ID"]
+        return render(request, 'Analysis.html', {'ID':ID})
 
 def ajaxproject(request):
     template = loader.get_template('test.html')

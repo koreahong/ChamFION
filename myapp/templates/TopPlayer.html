@@ -143,7 +143,7 @@
               <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                 <li><a href="#home-section" class="nav-link">Home</a></li>
                 <li><a href="../index" class="nav-link">Squad Maker</a></li>
-                <li><a href="../analysis" class="nav-link">Analysis</a></li>
+                <li><a href="#" onclick="link('asdf')" class="nav-link" >Analysis</a></li>
                 <li><a href="../topplayer" class="nav-link">Top Player</a></li>
               </ul>
             </nav>
@@ -195,6 +195,34 @@
   
 
         <script>
+          function link(irum) {
+            
+            
+            alert('check');
+            var form = document.createElement("form");
+            var parm = new Array();
+            var input = new Array();
+
+            form.action = '../analysis/';
+            form.method = "post";
+
+            parm.push( ['csrfmiddlewaretoken', getCookie('csrftoken')]);
+            parm.push( ['irum', irum] );
+            
+
+            for (var i = 0; i < parm.length; i++) {
+                input[i] = document.createElement("input");
+                input[i].setAttribute("type", "hidden");
+                input[i].setAttribute('name', parm[i][0]);
+                input[i].setAttribute("value", parm[i][1]);
+                form.appendChild(input[i]);
+            }
+            document.body.appendChild(form);
+            form.submit();
+          };
+
+
+
           $(function() {
             // tab operation
             $('#tabli_atk').click(function() {

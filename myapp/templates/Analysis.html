@@ -95,8 +95,8 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                 <li><a href="#home-section" class="nav-link">Home</a></li>
-                <li><a href="../index" class="nav-link">Squad Maker</a></li>
-                <li><a href="../analysis" class="nav-link">Analysis</a></li>
+                <li><a href="#" onclick="link('search')" class="nav-link">Squad Maker</a></li>
+                <li><a href="#" onclick="link('analysis')" class="nav-link" >Analysis</a></li>
                 <li><a href="../topplayer" class="nav-link">Top Player</a></li>
               </ul>
             </nav>
@@ -121,15 +121,15 @@
           <div class="row align-items-center">
           <div class = "col-9">
 
-            <h3 class="text-white">{{name}}</h3>
+            <h3 class="text-white">{{ID}}</h3>
 
           </div>
             <div class="col-3">
               <div class="row">
               	<div class="col-10">
-              	  <form action="/myapp/analysis/" method="post" >{% csrf_token %}	
+              	  <form action="/myapp/analysis/" method="get" >
 	                    <div class="form-group">
-	                      <input type="text" class="form-control" placeholder="닉네임을 입력해 주세요" name="irum">
+	                      <input type="text" class="form-control" placeholder="닉네임을 입력해 주세요" name="ID">
 	                    </div>
 	                  </div>
               		<div class="col-2">
@@ -152,6 +152,7 @@
             <div class="mb-5">
              
               <h3 class="text-black">스쿼드 메이커 </h3> 
+              <div id = "analysisTable"></div>
 						   
             </div> <!--  mb-5 -->
 
@@ -180,8 +181,116 @@
 
         <script>
 
-            
-            
+            function getParameterByName(name) {
+                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+
+
+            function link(url) {
+
+              var uid = getParameterByName('ID');
+              
+              alert(uid);
+              var form = document.createElement("form");
+              var parm = new Array();
+              var input = new Array();
+
+              form.action = '../'+url+'/';
+              form.method = "get";
+
+              parm.push( ['ID', uid] );
+              
+
+              for (var i = 0; i < parm.length; i++) {
+                  input[i] = document.createElement("input");
+                  input[i].setAttribute("type", "hidden");
+                  input[i].setAttribute('name', parm[i][0]);
+                  input[i].setAttribute("value", parm[i][1]);
+                  form.appendChild(input[i]);
+              }
+              document.body.appendChild(form);
+              form.submit();
+            };
+
+          $( document ).ready(function() {
+
+            var uid = getParameterByName('ID');
+
+            $.ajax({
+                url: "https://api.nexon.co.kr/fifaonline4/v1.0/users?nickname="+uid,
+                dataType: "json",
+                beforeSend : function(request){
+                    request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
+                    request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                },
+                success: function (data) {
+                  alert('check');
+                  //받아온 JSON을 테이블에 출력
+                  $('#analysisTable').html("");
+                  $.each(data, function (index, entry) {
+
+                    $('#analysisTable').append(index +" : "+entry+"<br>");
+                    console.log(index, entry);
+                    
+                  });
+
+                  matches();
+                },
+                error: function () { alert("에러발생"); }
+              });
+
+              
+
+              
+          });
+
+          function matches(){
+            $.ajax({
+              url: "https://api.nexon.co.kr/fifaonline4/v1.0/users/9c7e9d003b27aa292214fa02/matches?matchtype=50&offset=0&limit=10",
+              dataType: "json",
+              beforeSend : function(request){
+                  request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
+                  request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+              },
+              success: function (data) {
+                alert('check2');
+              //받아온 JSON을 테이블에 출력
+               $.each(data, function (index, entry) {
+                  $('#analysisTable').append(index +" : "+entry+"<br>");
+                  console.log(index, entry);
+              });
+              matchdetail();
+              },
+              error: function () { alert("에러발생"); }
+              });
+          }
+
+          function matchdetail(){
+            $.ajax({
+              url: "https://api.nexon.co.kr/fifaonline4/v1.0/matches/5d95d4f5ca9fd058e2ce9a39",
+              dataType: "json",
+              beforeSend : function(request){
+                  request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
+                  request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+              },
+              success: function (data) {
+                alert('check3');
+              //받아온 JSON을 테이블에 출력
+               $.each(data, function (index, entry) {
+                  $('#analysisTable').append(index +" : "+entry+"<br>");
+                  console.log(index, entry);
+                  
+              });
+              console.log(data.matchInfo[0].nickname);
+              console.log(data.matchInfo[1].nickname);
+              console.log(data.matchInfo[1].matchDetail.matchResult);
+              },
+              error: function () { alert("에러발생"); }
+              });
+          }
 
         </script>
 
