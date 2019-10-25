@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^ajaxproject/$', views.ajaxproject),  
     url(r'^searchData/$', views.searchData), 
     url(r'^squadform/$', views.squadform), 
+    url(r'^Mysquadform/$', views.Mysquadform), 
     url(r'^recommend/$', views.recommend),  
     url(r'^takeplayer/$', views.take),  
       

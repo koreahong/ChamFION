@@ -36,11 +36,16 @@
                 }
                 return cookieValue;
               }
+
+
               function csrfSafeMethod(method) {
                 // these HTTP methods do not require CSRF protection
                 return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
               }
+
+
               $(document).ready(function() {
+                var uid = getParameterByName('ID');
                 var csrftoken = getCookie('csrftoken');
                 $.ajaxSetup({
                   beforeSend: function(xhr, settings) {
@@ -49,9 +54,116 @@
                     }
                   }
                 });
+
+                $.ajax({
+                url: "https://api.nexon.co.kr/fifaonline4/v1.0/users?nickname="+uid,
+                dataType: "json",
+                beforeSend : function(request){
+                    request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
+                    request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                },
+                success: function (data) {
+                  //받아온 JSON을 테이블에 출력
+                  
+
+                  matches(data.accessId);
+                },
+                error: function () { alert("아이디를 확인해 주세요"); }
               });
-        </script>
-    <style>
+
+
+              });
+
+              function matches(userID){
+              $.ajax({
+                url: "https://api.nexon.co.kr/fifaonline4/v1.0/users/"+userID+"/matches?matchtype=50&offset=0&limit=20",
+                dataType: "json",
+                beforeSend : function(request){
+                    request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
+                    request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                },
+                success: function (data) {
+                //받아온 JSON을 테이블에 출력
+                $.each(data, function (index, entry) {
+                    //console.log(index, entry);
+                    matchdetail(index, entry);
+                });
+                },
+                error: function () { alert("아이디를 확인해 주세요"); }
+                });
+              }
+
+              function matchdetail(i, matchID){
+                $.ajax({
+                  url: "https://api.nexon.co.kr/fifaonline4/v1.0/matches/" + matchID,
+                  dataType: "json",
+                  beforeSend : function(request){
+                      request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
+                      request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                  },
+                  success: function (data) {
+
+                  if(data.matchInfo[0].nickname == getParameterByName('ID')){
+
+                     console.log(data.matchInfo[0].nickname);
+
+                     console.log("0번 :"+data.matchInfo[0].player[0].spId );
+                     console.log("0번 :"+data.matchInfo[0].player[0].spPosition );
+
+                     console.log("1번 :"+data.matchInfo[0].player[1].spId );
+                     console.log("1번 :"+data.matchInfo[0].player[1].spPosition );
+
+                     console.log("2번 :"+data.matchInfo[0].player[2].spId );
+                     console.log("2번 :"+data.matchInfo[0].player[2].spPosition );
+
+                     console.log("3번 :"+data.matchInfo[0].player[3].spId );
+                     console.log("3번 :"+data.matchInfo[0].player[3].spPosition );
+
+                     console.log("4번 :"+data.matchInfo[0].player[4].spId );
+                     console.log("4번 :"+data.matchInfo[0].player[4].spPosition );
+
+                     console.log("5번 :"+data.matchInfo[0].player[5].spId );
+                     console.log("5번 :"+data.matchInfo[0].player[5].spPosition );
+
+                     console.log("6번 :"+data.matchInfo[0].player[6].spId );
+                     console.log("6번 :"+data.matchInfo[0].player[6].spPosition );
+
+                     console.log("7번 :"+data.matchInfo[0].player[7].spId );
+                     console.log("7번 :"+data.matchInfo[0].player[7].spPosition );
+
+                     console.log("8번 :"+data.matchInfo[0].player[8].spId );
+                     console.log("8번 :"+data.matchInfo[0].player[8].spPosition );
+
+                     console.log("9번 :"+data.matchInfo[0].player[9].spId );
+                     console.log("9번 :"+data.matchInfo[0].player[9].spPosition );
+
+                     console.log("10번 :"+data.matchInfo[0].player[10].spId );
+                     console.log("10번 :"+data.matchInfo[0].player[10].spPosition );
+
+
+                  }else{
+                     console.log(data.matchInfo[1].nickname);
+                  }
+
+                  $.ajax({
+                    url:'/myapp/Mysquadform/',
+                    dataType:'json',
+                    type:'POST',
+                    data:{'msg':$('#selectbox').val()},
+                    success:function(result){
+                        $('#squadformation').html(result['msg']);
+                    }
+                  });
+
+                 
+                 
+                  },
+                  error: function () { alert("아이디를 확인해 주세요"); }
+                  });
+                }
+
+      </script>
+      <style>
       table {
         border-collapse: collapse;
         width: 100%;
@@ -97,7 +209,7 @@
                 <li><a href="#home-section" class="nav-link">Home</a></li>
                 <li><a href="#" onclick="link('search')" class="nav-link">Squad Maker</a></li>
                 <li><a href="#" onclick="link('analysis')" class="nav-link" >Analysis</a></li>
-                <li><a href="../topplayer" class="nav-link">Top Player</a></li>
+                <li><a href="#" onclick="link('topplayer')" class="nav-link">Top Player</a></li>
               </ul>
             </nav>
           </div>
@@ -155,7 +267,8 @@
 						              
 						
 						    <select id="selectbox" >
-						    <option value="">선택</option>
+                <option value="">선택</option>
+                <option value="f1111">1111</option>
 						    <option value="f3412">3412</option>
 						    <option value="f343">343</option>
 						    <option value="f343_2">343_2</option>
@@ -234,9 +347,8 @@
 
             function link(url) {
 
-              var uid = getParameterByName('ID');
               
-              alert(uid);
+              
               var form = document.createElement("form");
               var parm = new Array();
               var input = new Array();

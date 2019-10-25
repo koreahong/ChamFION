@@ -1,10 +1,18 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.template import loader
+from myapp import imptest
+from myapp import finalrun
+from myapp import graphchecker
 import json
+
+
 # Create your views here.
     
 def IndexFunc(request):
+    print(imptest.checker())
+    graphchecker.kkk()
+    #finalrun.finrun()
     return render(request, 'index.html')
 
 def SearchFunc(request):
@@ -14,13 +22,21 @@ def SearchFunc(request):
         return render(request, 'search.html', {'ID':""})
     else :
         ID = request.GET["ID"]
+        
         return render(request, 'search.html', {'ID':ID})
+        #return render(request, 'search.html', {'ID':ID+str(imptest.checker())})
     
 def testtem(request):
     return render(request, 'testtem.html')
     
 def topplayerFunc(request):
-    return render(request, 'TopPlayer.html')
+    
+    if request.GET["ID"] is None:
+    
+        return render(request, 'topplayer.html', {'ID':""})
+    else :
+        ID = request.GET["ID"]
+    return render(request, 'topplayer.html', {'ID':ID})
 
 def TOPatkFunc(request):
     return render(request, 'TOPatk.html')
@@ -59,7 +75,21 @@ def squadform(request):
     
     html +="                   </div>"
     
-    context = {'msg': html, }
+    context = {'msg':html,}
+    return HttpResponse(json.dumps(context), "application/json")
+
+def Mysquadform(request):
+    data = request.POST['msg']
+    html =" <div class= \"squadmaker-view__field "+data+"\"> "
+    
+    for i in range(1,12):
+        html +="                       <div id =\"formationPlayer"+ str(i) +"\">"
+        html +="                            <img src='/static/images/c000.png'  width=\"120\" height=\"120\" onclick=\"recoplayer("+str(i)+")\"></img>"
+        html +="                        </div>"        
+    
+    html +="                   </div>"
+    
+    context = {'msg':html,}
     return HttpResponse(json.dumps(context), "application/json")
 
 

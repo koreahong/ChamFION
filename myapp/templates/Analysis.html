@@ -52,6 +52,26 @@
               });
         </script>
     <style>
+      .win{
+        margin: 8px;
+        border:1px solid #cdd2d2;
+        border-color:#99b9cf;
+        background-color:skyblue;
+
+      }
+      .defeat{
+        margin: 8px;
+        border:1px solid #cdd2d2;
+        border-color:#cea7a7;
+        background-color:pink;
+      }
+      .draw{
+        margin: 8px;
+        border:1px solid #cdd2d2;
+        border-color:#a7a7a7;
+        background-color:#b6b6b6;
+      }
+
       table {
         border-collapse: collapse;
         width: 100%;
@@ -97,7 +117,7 @@
                 <li><a href="#home-section" class="nav-link">Home</a></li>
                 <li><a href="#" onclick="link('search')" class="nav-link">Squad Maker</a></li>
                 <li><a href="#" onclick="link('analysis')" class="nav-link" >Analysis</a></li>
-                <li><a href="../topplayer" class="nav-link">Top Player</a></li>
+                <li><a href="#" onclick="link('topplayer')" class="nav-link">Top Player</a></li>
               </ul>
             </nav>
           </div>
@@ -151,7 +171,7 @@
           <div class="col-lg-8 mb-5">
             <div class="mb-5">
              
-              <h3 class="text-black">스쿼드 메이커 </h3> 
+              <h3 class="text-black">경기 기록 </h3> 
               <div id = "analysisTable"></div>
 						   
             </div> <!--  mb-5 -->
@@ -163,10 +183,6 @@
               <!--  empty box ( 비율때문에 삽입) -->            
             </div>
             <div class="col-lg-2">
-                     
-                <h3 class="text-black">선수비교</h3>
-                <table id="tablList" border="1"></table>
-                
             
             </div> <!-- right block end -->
 
@@ -180,6 +196,10 @@
 
 
         <script>
+            function doDisplay(detailnum){
+
+              $(detailnum).toggle();
+            }
 
             function getParameterByName(name) {
                 name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -193,7 +213,6 @@
 
               var uid = getParameterByName('ID');
               
-              alert(uid);
               var form = document.createElement("form");
               var parm = new Array();
               var input = new Array();
@@ -218,6 +237,7 @@
           $( document ).ready(function() {
 
             var uid = getParameterByName('ID');
+            
 
             $.ajax({
                 url: "https://api.nexon.co.kr/fifaonline4/v1.0/users?nickname="+uid,
@@ -227,19 +247,17 @@
                     request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
                 },
                 success: function (data) {
-                  alert('check');
                   //받아온 JSON을 테이블에 출력
                   $('#analysisTable').html("");
                   $.each(data, function (index, entry) {
-
-                    $('#analysisTable').append(index +" : "+entry+"<br>");
-                    console.log(index, entry);
-                    
+                    //console.log(index, entry);
                   });
+                  $('#analysisTable').append("닉네임 : "+data.nickname+"<br>");
+                  $('#analysisTable').append("레벨 :"+ +data.level+"<br>");
 
-                  matches();
+                  matches(data.accessId);
                 },
-                error: function () { alert("에러발생"); }
+                error: function () { alert("아이디를 확인해 주세요"); }
               });
 
               
@@ -247,48 +265,103 @@
               
           });
 
-          function matches(){
+          function matches(userID){
             $.ajax({
-              url: "https://api.nexon.co.kr/fifaonline4/v1.0/users/9c7e9d003b27aa292214fa02/matches?matchtype=50&offset=0&limit=10",
+              url: "https://api.nexon.co.kr/fifaonline4/v1.0/users/"+userID+"/matches?matchtype=50&offset=0&limit=20",
               dataType: "json",
               beforeSend : function(request){
                   request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
                   request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
               },
               success: function (data) {
-                alert('check2');
               //받아온 JSON을 테이블에 출력
                $.each(data, function (index, entry) {
-                  $('#analysisTable').append(index +" : "+entry+"<br>");
-                  console.log(index, entry);
+                  //console.log(index, entry);
+                  matchdetail(index, entry);
               });
-              matchdetail();
               },
-              error: function () { alert("에러발생"); }
+              error: function () { alert("아이디를 확인해 주세요"); }
               });
           }
 
-          function matchdetail(){
+          function matchdetail(i, matchID){
             $.ajax({
-              url: "https://api.nexon.co.kr/fifaonline4/v1.0/matches/5d95d4f5ca9fd058e2ce9a39",
+              url: "https://api.nexon.co.kr/fifaonline4/v1.0/matches/" + matchID,
               dataType: "json",
               beforeSend : function(request){
                   request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
                   request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
               },
               success: function (data) {
-                alert('check3');
               //받아온 JSON을 테이블에 출력
-               $.each(data, function (index, entry) {
-                  $('#analysisTable').append(index +" : "+entry+"<br>");
+              /*  $.each(data, function (index, entry) {
                   console.log(index, entry);
-                  
-              });
+              }); */
+               $('#analysisTable').append("<div id ="+i+">");
+
+               $('#'+i).append(data.matchInfo[0].nickname+":");
+               $('#'+i).append(data.matchInfo[0].shoot.goalTotal+"&nbsp;");
+               
+               $('#'+i).append(":" + data.matchInfo[1].shoot.goalTotal+"&nbsp;" );
+               $('#'+i).append(data.matchInfo[1].nickname);
+               $('#'+i).append("<a href=\"javascript:doDisplay(detail"+i+");\"> 자세히 </a>");
+               $('#'+i).append("<br>");
+               $('#'+i).append("<div id=\"detail"+i+"\"style=\"display: none;\" >");
+                
+
+               $('#detail'+i).append(data.matchInfo[0].shoot.shootTotal+"&nbsp;"+"슈팅"+"&nbsp;");
+               $('#detail'+i).append(data.matchInfo[1].shoot.shootTotal +"<br>");
+               $('#detail'+i).append(data.matchInfo[0].shoot.effectiveShootTotal+"&nbsp;"+"유효슈팅"+"&nbsp;");
+               $('#detail'+i).append(data.matchInfo[1].shoot.effectiveShootTotal +"<br>");
+               $('#detail'+i).append(data.matchInfo[0].matchDetail.possession+"&nbsp;"+"점유율"+"&nbsp;");
+               $('#detail'+i).append(data.matchInfo[1].matchDetail.possession +"<br>");
+               $('#detail'+i).append(data.matchInfo[0].pass.passTry+"&nbsp;"+"패스 횟수"+"&nbsp;");
+               $('#detail'+i).append(data.matchInfo[1].pass.passTry +"<br>");
+               $('#detail'+i).append(data.matchInfo[0].pass.passSuccess+"&nbsp;"+"패스 성공률"+"&nbsp;");
+               $('#detail'+i).append(data.matchInfo[1].pass.passSuccess +"<br>");
+               $('#detail'+i).append(data.matchInfo[0].matchDetail.foul+"&nbsp;"+"파울"+"&nbsp;");
+               $('#detail'+i).append(data.matchInfo[1].matchDetail.foul +"<br>");
+               $('#detail'+i).append(data.matchInfo[0].matchDetail.yellowCards+"&nbsp;"+"옐로우 카드"+"&nbsp;");
+               $('#detail'+i).append(data.matchInfo[1].matchDetail.yellowCards +"<br>");
+               $('#detail'+i).append(data.matchInfo[0].matchDetail.redCards+"&nbsp;"+"레드 카드"+"&nbsp;");
+               $('#detail'+i).append(data.matchInfo[1].matchDetail.redCards +"<br>");
+               $('#detail'+i).append(data.matchInfo[0].matchDetail.cornerKick+"&nbsp;"+"코너킥"+"&nbsp;");
+               $('#detail'+i).append(data.matchInfo[1].matchDetail.cornerKick +"<br>");
+               $('#detail'+i).append("</div>");
+               
+              // $('#'+i).append(data.matchInfo[1].matchDetail.matchResult +"<br>");
+            
+               $('#'+i).append("</div><br>");
+              
+               if(data.matchInfo[0].nickname == getParameterByName('ID')){
+                 if(data.matchInfo[0].matchDetail.matchResult =="승"){
+                   $('#'+i).wrapAll("<div class='win'></div>")
+                 }else if(data.matchInfo[0].matchDetail.matchResult =="패"){
+                   $('#'+i).wrapAll("<div class='defeat'></div>")
+                 }else{
+                   $('#'+i).wrapAll("<div class='draw'></div>")
+                 }
+               }else{
+                 if(data.matchInfo[1].matchDetail.matchResult =="승"){
+                   $('#'+i).wrapAll("<div class='win'></div>")
+                 }else if(data.matchInfo[1].matchDetail.matchResult =="패"){
+                   $('#'+i).wrapAll("<div class='defeat'></div>")
+                 }else{
+                   $('#'+i).wrapAll("<div class='draw'></div>")
+                 }
+
+               }
+
+               
+
+              //$('#analysisTable').wrapAll("<div class='win'></div>")
+
+
               console.log(data.matchInfo[0].nickname);
               console.log(data.matchInfo[1].nickname);
               console.log(data.matchInfo[1].matchDetail.matchResult);
               },
-              error: function () { alert("에러발생"); }
+              error: function () { alert("아이디를 확인해 주세요"); }
               });
           }
 
