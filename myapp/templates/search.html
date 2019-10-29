@@ -45,6 +45,8 @@
 
 
               $(document).ready(function() {
+
+                var addList = [], listdata = {};
                 var uid = getParameterByName('ID');
                 var csrftoken = getCookie('csrftoken');
                 $.ajaxSetup({
@@ -66,7 +68,7 @@
                   //받아온 JSON을 테이블에 출력
                   
 
-                  matches(data.accessId);
+                  drmatches(data.accessId);
                 },
                 error: function () { alert("아이디를 확인해 주세요"); }
               });
@@ -74,7 +76,7 @@
 
               });
 
-              function matches(userID){
+              function drmatches(userID){
               $.ajax({
                 url: "https://api.nexon.co.kr/fifaonline4/v1.0/users/"+userID+"/matches?matchtype=50&offset=0&limit=20",
                 dataType: "json",
@@ -83,17 +85,15 @@
                     request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
                 },
                 success: function (data) {
-                //받아온 JSON을 테이블에 출력
-                $.each(data, function (index, entry) {
-                    //console.log(index, entry);
-                    matchdetail(index, entry);
-                });
+                  drmatchdetail(data[0])
+                  console.log(data[0]);
                 },
                 error: function () { alert("아이디를 확인해 주세요"); }
                 });
               }
 
-              function matchdetail(i, matchID){
+              function drmatchdetail(matchID){
+
                 $.ajax({
                   url: "https://api.nexon.co.kr/fifaonline4/v1.0/matches/" + matchID,
                   dataType: "json",
@@ -103,57 +103,50 @@
                   },
                   success: function (data) {
 
+                    var main = new Array(); // json의 전체를 가리키는 배열
+                    var cnt = 0;
                   if(data.matchInfo[0].nickname == getParameterByName('ID')){
-
-                     console.log(data.matchInfo[0].nickname);
-
-                     console.log("0번 :"+data.matchInfo[0].player[0].spId );
-                     console.log("0번 :"+data.matchInfo[0].player[0].spPosition );
-
-                     console.log("1번 :"+data.matchInfo[0].player[1].spId );
-                     console.log("1번 :"+data.matchInfo[0].player[1].spPosition );
-
-                     console.log("2번 :"+data.matchInfo[0].player[2].spId );
-                     console.log("2번 :"+data.matchInfo[0].player[2].spPosition );
-
-                     console.log("3번 :"+data.matchInfo[0].player[3].spId );
-                     console.log("3번 :"+data.matchInfo[0].player[3].spPosition );
-
-                     console.log("4번 :"+data.matchInfo[0].player[4].spId );
-                     console.log("4번 :"+data.matchInfo[0].player[4].spPosition );
-
-                     console.log("5번 :"+data.matchInfo[0].player[5].spId );
-                     console.log("5번 :"+data.matchInfo[0].player[5].spPosition );
-
-                     console.log("6번 :"+data.matchInfo[0].player[6].spId );
-                     console.log("6번 :"+data.matchInfo[0].player[6].spPosition );
-
-                     console.log("7번 :"+data.matchInfo[0].player[7].spId );
-                     console.log("7번 :"+data.matchInfo[0].player[7].spPosition );
-
-                     console.log("8번 :"+data.matchInfo[0].player[8].spId );
-                     console.log("8번 :"+data.matchInfo[0].player[8].spPosition );
-
-                     console.log("9번 :"+data.matchInfo[0].player[9].spId );
-                     console.log("9번 :"+data.matchInfo[0].player[9].spPosition );
-
-                     console.log("10번 :"+data.matchInfo[0].player[10].spId );
-                     console.log("10번 :"+data.matchInfo[0].player[10].spPosition );
-
+                    for(var i =0 ;i<data.matchInfo[0].player.length; i++){
+                      if(data.matchInfo[0].player[i].spPosition != '28'){
+                      sub = new Object();     // 객체 값 입력후 main배열의 0번 index에 셋팅
+                      sub['spId'] = data.matchInfo[0].player[i].spId; 
+                      sub['spPosition'] = data.matchInfo[0].player[i].spPosition;
+                      main[cnt] = sub;
+                      cnt++;
+                      }
+                    }
+                    console.log(data.matchInfo[0].nickname+"home");
+                    var jsonObject = {list:main}
+                    
+                    
+                    console.log(jsonObject);
 
                   }else{
-                     console.log(data.matchInfo[1].nickname);
+                    for(var i =0 ;i<data.matchInfo[1].player.length; i++){
+                      if(data.matchInfo[1].player[i].spPosition != '28'){
+                      sub = new Object();     // 객체 값 입력후 main배열의 0번 index에 셋팅
+                      sub['spId'] = data.matchInfo[1].player[i].spId; 
+                      sub['spPosition'] = data.matchInfo[1].player[i].spPosition;
+                      main[cnt] = sub;
+                      cnt++;
+                      }
+
+                    }
+                    var jsonObject = {list:main}
+                    console.log(data.matchInfo[1].nickname+"away");
+                    console.log(jsonObject);
                   }
 
-                  $.ajax({
+                   $.ajax({
                     url:'/myapp/Mysquadform/',
                     dataType:'json',
                     type:'POST',
-                    data:{'msg':$('#selectbox').val()},
+                    data: jsonObject,
+                    //data:{'spId':data.matchInfo[0].player[0].spId , 'spPosition':data.matchInfo[0].player[0].spPosition},
                     success:function(result){
                         $('#squadformation').html(result['msg']);
                     }
-                  });
+                  }); 
 
                  
                  
@@ -268,7 +261,6 @@
 						
 						    <select id="selectbox" >
                 <option value="">선택</option>
-                <option value="f1111">1111</option>
 						    <option value="f3412">3412</option>
 						    <option value="f343">343</option>
 						    <option value="f343_2">343_2</option>
@@ -346,9 +338,9 @@
 
 
             function link(url) {
+              
+              var uid = getParameterByName('ID');
 
-              
-              
               var form = document.createElement("form");
               var parm = new Array();
               var input = new Array();
@@ -413,10 +405,10 @@
                 dataType: "json",
                 success: function (data) {
                   //받아온 JSON을 테이블에 출력
-                  $('#formationPlayer'+i).html("");
-                  $('#formationPlayer'+i).append("<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+season+".png\" width=\"120\" height=\"120\" onclick=\"searchplayer(i)\">");
-                  $('#formationPlayer'+i).append("<img style=\"position: absolute; top: 15%;left:40%;\" src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/"+Pnum+".png?rd=201910080430\" width=\"72\" height=\"72\" onclick=\"searchplayer(i)\">");
-                  $('#formationPlayer'+i).append("<img style=\"position: absolute; top: 57%;left:10%;\" src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+Mark+"_big.png\" width=\"18px\" height=\"18px\" onclick=\"searchplayer(i)\">");
+                  $('#formationPlayerspp'+i).html("");
+                  $('#formationPlayerspp'+i).append("<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+season+".png\" width=\"120\" height=\"120\" onclick=\"searchplayer(i)\">");
+                  $('#formationPlayerspp'+i).append("<img style=\"position: absolute; top: 15%;left:40%;\" src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/"+Pnum+".png?rd=201910080430\" width=\"72\" height=\"72\" onclick=\"searchplayer(i)\">");
+                  $('#formationPlayerspp'+i).append("<img style=\"position: absolute; top: 57%;left:10%;\" src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+Mark+"_big.png\" width=\"18px\" height=\"18px\" onclick=\"searchplayer(i)\">");
                 },
                 error: function () { alert("에러발생"); }
               });

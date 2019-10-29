@@ -15,7 +15,6 @@ urlpatterns = [
     path('topplayer/TOPdef',views.TOPdefFunc),
     
     path('testtem',views.testtem),
-
  
     url(r'^ajaxproject/$', views.ajaxproject),  
     url(r'^searchData/$', views.searchData), 
