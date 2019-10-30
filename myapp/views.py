@@ -12,7 +12,7 @@ import json
 def IndexFunc(request):
     print(imptest.checker())
     graphchecker.kkk()
-    MongoDbManager.start()
+    #MongoDbManager.start()
     #finalrun.finrun()
     return render(request, 'index.html')
 
@@ -128,7 +128,7 @@ def Mysquadform(request):
         html +=" <div class= \"squadmaker-view__field mySquad\"> "
         html +="                       <div id =\"formationPlayerspp"+ request.POST['list['+str(i)+'][spPosition]'] +"\">"
         html +="                            <img src="+backurl+" width=\"120\" height=\"120\" onclick=\"recoplayer("+request.POST['list['+str(i)+'][spPosition]']+")\">"
-        html +="                            <img style=\"position: absolute; top: 14%;left:35%;\" src=\"http://http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/playersAction/"+nlist+".png?rd=201910290610\" onerror=\"this.src='https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+spID+".png?rd=201910290610'\" width=\"72\" height=\"72\" onclick=\"recoplayer("+request.POST['list['+str(i)+'][spPosition]']+")\">"
+        html +="                            <img style=\"position: absolute; top: 14%;left:35%;\" src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/playersAction/p"+nlist+".png?rd=201910290610\" onerror=\"this.src='https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+spID+".png?rd=201910290610'\" width=\"72\" height=\"72\" onclick=\"recoplayer("+request.POST['list['+str(i)+'][spPosition]']+")\">"
         html +="                            <img style=\"position: absolute; top: 60%;left:11%;\" src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+Mark+".png\" width=\"15px\" height=\"12px\" onclick=\"searchplayer(i)\">"
         html +="                            <div style=\"width:100px; top:50%; left:50%; position: absolute; transform:translate(-50%,50%)\"><p style=\"text-align:center; font-family:맑은고딕;\"><font size=\"1.8\" color=\"black\">"+ Name +"</font></p></div>"
         html +="                        </div>"        

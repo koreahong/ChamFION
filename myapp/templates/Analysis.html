@@ -208,7 +208,6 @@
                 return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
             }
 
-
             function link(url) {
 
               var uid = getParameterByName('ID');
@@ -221,7 +220,6 @@
               form.method = "get";
 
               parm.push( ['ID', uid] );
-              
 
               for (var i = 0; i < parm.length; i++) {
                   input[i] = document.createElement("input");
@@ -235,9 +233,7 @@
             };
 
           $( document ).ready(function() {
-
             var uid = getParameterByName('ID');
-            
 
             $.ajax({
                 url: "https://api.nexon.co.kr/fifaonline4/v1.0/users?nickname="+uid,
@@ -259,10 +255,6 @@
                 },
                 error: function () { alert("아이디를 확인해 주세요"); }
               });
-
-              
-
-              
           });
 
           function matches(userID){
@@ -299,16 +291,15 @@
               }); */
                $('#analysisTable').append("<div id ="+i+">");
 
-               $('#'+i).append(data.matchInfo[0].nickname+":");
+               $('#'+i).append(data.matchInfo[0].nickname+" ");
                $('#'+i).append(data.matchInfo[0].shoot.goalTotal+"&nbsp;");
                
-               $('#'+i).append(":" + data.matchInfo[1].shoot.goalTotal+"&nbsp;" );
+               $('#'+i).append(": " + data.matchInfo[1].shoot.goalTotal+"&nbsp;" );
                $('#'+i).append(data.matchInfo[1].nickname);
                $('#'+i).append("<a href=\"javascript:doDisplay(detail"+i+");\"> 자세히 </a>");
                $('#'+i).append("<br>");
                $('#'+i).append("<div id=\"detail"+i+"\"style=\"display: none;\" >");
                 
-
                $('#detail'+i).append(data.matchInfo[0].shoot.shootTotal+"&nbsp;"+"슈팅"+"&nbsp;");
                $('#detail'+i).append(data.matchInfo[1].shoot.shootTotal +"<br>");
                $('#detail'+i).append(data.matchInfo[0].shoot.effectiveShootTotal+"&nbsp;"+"유효슈팅"+"&nbsp;");
@@ -317,7 +308,7 @@
                $('#detail'+i).append(data.matchInfo[1].matchDetail.possession +"<br>");
                $('#detail'+i).append(data.matchInfo[0].pass.passTry+"&nbsp;"+"패스 횟수"+"&nbsp;");
                $('#detail'+i).append(data.matchInfo[1].pass.passTry +"<br>");
-               $('#detail'+i).append(data.matchInfo[0].pass.passSuccess+"&nbsp;"+"패스 성공률"+"&nbsp;");
+               $('#detail'+i).append(data.matchInfo[0].pass.passSuccess+"&nbsp;"+"패스 성공횟수"+"&nbsp;");
                $('#detail'+i).append(data.matchInfo[1].pass.passSuccess +"<br>");
                $('#detail'+i).append(data.matchInfo[0].matchDetail.foul+"&nbsp;"+"파울"+"&nbsp;");
                $('#detail'+i).append(data.matchInfo[1].matchDetail.foul +"<br>");

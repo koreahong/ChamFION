@@ -1,0 +1,113 @@
+[
+        {
+                "seasonId": 101,
+                "className": "ICON",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/ICON.png"
+        },
+        {
+                "seasonId": 201,
+                "className": "NHD",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/NHD.png"
+        },
+        {
+                "seasonId": 202,
+                "className": "TKI",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/TKI.png"
+		
+        },
+        {
+                "seasonId": 206,
+                "className": "TB",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/TB.png"
+        },
+        {
+                "seasonId": 207,
+                "className": "TT",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/TT.png"
+
+        },
+        {
+                "seasonId": 210,
+                "className": "GR",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/GR.png"
+		
+        },
+        {
+                "seasonId": 211,
+                "className": "19TOTY",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/19TOTY.png"
+        },
+        {
+                "seasonId": 212,
+                "className": "18TOTY",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/18TOTY.png"
+        },
+        {
+                "seasonId": 213,
+                "className": "MCICON",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/MCICON.png"
+        },
+        {
+                "seasonId": 214,
+                "className": "TC",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/TC.png"
+        },
+        {
+                "seasonId": 215,
+                "className": "19TOTS",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/19TOTS.png"
+		
+        },
+        {
+                "seasonId": 216,
+                "className": "HOT",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/HOT.png"
+        },
+        {
+                "seasonId": 217,
+                "className": "COC",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/COC.png"
+        },
+        {
+                "seasonId": 295,
+                "className": "2019KFA",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/2019KFA.png"
+        },
+        {
+                "seasonId": 297,
+                "className": "MCFC",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/MCFC.png"
+        },
+        {
+                "seasonId": 298,
+                "className": "KFA",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/KFA.png"
+        },
+        {
+                "seasonId": 300,
+                "className": "LIVE",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/LIVE.png"
+        },
+        {
+                "seasonId": 317,
+                "className": "17",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/17.png"
+        },
+        {
+                "seasonId": 318,
+                "className": "18",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/18.png"
+        },
+        {
+                "seasonId": 500,
+                "className": "PLC",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/PLC.png"
+        },
+        {
+                "seasonId": 501,
+                "className": "18PLS",
+		"url": "http://s.nx.com/s2/game/fo4/obt/externalAssets/card/18PLS.png"
+
+        }
+]
+
