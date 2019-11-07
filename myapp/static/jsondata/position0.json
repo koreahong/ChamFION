@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "300230621",
+		"spGrade": "5",
+		"seasonName": "18",
+		"name": "G. 돈나룸마",
+		"count": "224665"
+	},
+	{
+		"spId": "300230621",
+		"spGrade": "6",
+		"seasonName": "18",
+		"name": "G. 돈나룸마",
+		"count": "138491"
+	},
+	{
+		"spId": "300192119",
+		"spGrade": "5",
+		"seasonName": "18",
+		"name": "T. 쿠르투아",
+		"count": "74001"
+	},
+	{
+		"spId": "300230621",
+		"spGrade": "7",
+		"seasonName": "18",
+		"name": "G. 돈나룸마",
+		"count": "68583"
+	},
+	{
+		"spId": "300192119",
+		"spGrade": "6",
+		"seasonName": "18",
+		"name": "T. 쿠르투아",
+		"count": "56322"
+	},
+	{
+		"spId": "300167948",
+		"spGrade": "5",
+		"seasonName": "18",
+		"name": "H. 요리스",
+		"count": "25053"
+	},
+	{
+		"spId": "300192119",
+		"spGrade": "7",
+		"seasonName": "18",
+		"name": "T. 쿠르투아",
+		"count": "20579"
+	},
+	{
+		"spId": "300192448",
+		"spGrade": "5",
+		"seasonName": "18",
+		"name": "M. 테어슈테겐",
+		"count": "19559"
+	},
+	{
+		"spId": "300230621",
+		"spGrade": "8",
+		"seasonName": "18",
+		"name": "G. 돈나룸마",
+		"count": "19369"
+	},
+	{
+		"spId": "210230621",
+		"spGrade": "5",
+		"seasonName": "GR",
+		"name": "G. 돈나룸마",
+		"count": "19164"
+	}
+]

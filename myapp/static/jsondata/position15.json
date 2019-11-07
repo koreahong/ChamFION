@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "207214100",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "117154"
+	},
+	{
+		"spId": "207214100",
+		"spGrade": "4",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "27667"
+	},
+	{
+		"spId": "207214100",
+		"spGrade": "3",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "19757"
+	},
+	{
+		"spId": "210195864",
+		"spGrade": "3",
+		"seasonName": "GR",
+		"name": "P. 포그바",
+		"count": "15359"
+	},
+	{
+		"spId": "210195864",
+		"spGrade": "1",
+		"seasonName": "GR",
+		"name": "P. 포그바",
+		"count": "13262"
+	},
+	{
+		"spId": "201001620",
+		"spGrade": "5",
+		"seasonName": "NHD",
+		"name": "E. 프티",
+		"count": "11129"
+	},
+	{
+		"spId": "214003647",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "M. 발락",
+		"count": "9747"
+	},
+	{
+		"spId": "214195864",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "P. 포그바",
+		"count": "9310"
+	},
+	{
+		"spId": "210210008",
+		"spGrade": "5",
+		"seasonName": "GR",
+		"name": "A. 라비오",
+		"count": "8735"
+	},
+	{
+		"spId": "214182521",
+		"spGrade": "1",
+		"seasonName": "TC",
+		"name": "T. 크로스",
+		"count": "6856"
+	}
+]

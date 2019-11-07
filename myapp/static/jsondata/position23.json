@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "295200104",
+		"spGrade": "5",
+		"seasonName": "K19",
+		"name": "손흥민",
+		"count": "22942"
+	},
+	{
+		"spId": "211231747",
+		"spGrade": "1",
+		"seasonName": "19TOTY",
+		"name": "K. 음바페",
+		"count": "11241"
+	},
+	{
+		"spId": "210231747",
+		"spGrade": "3",
+		"seasonName": "GR",
+		"name": "K. 음바페",
+		"count": "9677"
+	},
+	{
+		"spId": "295200104",
+		"spGrade": "4",
+		"seasonName": "K19",
+		"name": "손흥민",
+		"count": "8045"
+	},
+	{
+		"spId": "210231747",
+		"spGrade": "1",
+		"seasonName": "GR",
+		"name": "K. 음바페",
+		"count": "7146"
+	},
+	{
+		"spId": "210231677",
+		"spGrade": "5",
+		"seasonName": "GR",
+		"name": "M. 래시포드",
+		"count": "6859"
+	},
+	{
+		"spId": "214231747",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "K. 음바페",
+		"count": "6182"
+	},
+	{
+		"spId": "211158023",
+		"spGrade": "1",
+		"seasonName": "19TOTY",
+		"name": "L. 메시",
+		"count": "6125"
+	},
+	{
+		"spId": "210158023",
+		"spGrade": "1",
+		"seasonName": "GR",
+		"name": "L. 메시",
+		"count": "6056"
+	},
+	{
+		"spId": "207231747",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "K. 음바페",
+		"count": "5805"
+	}
+]

@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "207037576",
+		"spGrade": "3",
+		"seasonName": "TT",
+		"name": "호나우두",
+		"count": "12818"
+	},
+	{
+		"spId": "211020801",
+		"spGrade": "1",
+		"seasonName": "19TOTY",
+		"name": "크리스티아누 호날두",
+		"count": "12645"
+	},
+	{
+		"spId": "207214100",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "11106"
+	},
+	{
+		"spId": "211020801",
+		"spGrade": "2",
+		"seasonName": "19TOTY",
+		"name": "크리스티아누 호날두",
+		"count": "8510"
+	},
+	{
+		"spId": "214041236",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "Z. 이브라히모비치",
+		"count": "8204"
+	},
+	{
+		"spId": "207037576",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "호나우두",
+		"count": "7912"
+	},
+	{
+		"spId": "207037576",
+		"spGrade": "4",
+		"seasonName": "TT",
+		"name": "호나우두",
+		"count": "7753"
+	},
+	{
+		"spId": "207020801",
+		"spGrade": "3",
+		"seasonName": "TT",
+		"name": "크리스티아누 호날두",
+		"count": "5692"
+	},
+	{
+		"spId": "214037576",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "호나우두",
+		"count": "5489"
+	},
+	{
+		"spId": "207020801",
+		"spGrade": "4",
+		"seasonName": "TT",
+		"name": "크리스티아누 호날두",
+		"count": "5390"
+	}
+]

@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "295200104",
+		"spGrade": "5",
+		"seasonName": "K19",
+		"name": "손흥민",
+		"count": "3500"
+	},
+	{
+		"spId": "207214100",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "3135"
+	},
+	{
+		"spId": "211020801",
+		"spGrade": "1",
+		"seasonName": "19TOTY",
+		"name": "크리스티아누 호날두",
+		"count": "1939"
+	},
+	{
+		"spId": "207037576",
+		"spGrade": "3",
+		"seasonName": "TT",
+		"name": "호나우두",
+		"count": "1822"
+	},
+	{
+		"spId": "211231747",
+		"spGrade": "1",
+		"seasonName": "19TOTY",
+		"name": "K. 음바페",
+		"count": "1817"
+	},
+	{
+		"spId": "210231747",
+		"spGrade": "3",
+		"seasonName": "GR",
+		"name": "K. 음바페",
+		"count": "1720"
+	},
+	{
+		"spId": "207037576",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "호나우두",
+		"count": "1505"
+	},
+	{
+		"spId": "211158023",
+		"spGrade": "1",
+		"seasonName": "19TOTY",
+		"name": "L. 메시",
+		"count": "1489"
+	},
+	{
+		"spId": "214037576",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "호나우두",
+		"count": "1380"
+	},
+	{
+		"spId": "207037576",
+		"spGrade": "4",
+		"seasonName": "TT",
+		"name": "호나우두",
+		"count": "1336"
+	}
+]

@@ -1,506 +1,823 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="UTF-8">
-  <head>  
-    <title>ChamFION &mdash; 피파온라인분석사이트</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width initial-scale=1, shrink-to-fit=no">    
-    
-    
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href='{% static "fonts/icomoon/style.css" %}'>
 
-    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
-    <link rel="stylesheet" href='{% static "css/jquery-ui.css" %}'>
-    <link rel="stylesheet" href='{% static "css/owl.carousel.min.css" %}'>
-    <link rel="stylesheet" href='{% static "css/owl.theme.default.min.css" %}'>
-    <link rel="stylesheet" href='{% static "css/owl.theme.default.min.css" %}'>
+<head>
+<title>ChamFION &mdash; 피파온라인분석사이트</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href='{% static "css/jquery.fancybox.min.css" %}'>
 
-    <link rel="stylesheet" href='{% static "css/bootstrap-datepicker.css" %}'>
+<link
+	href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900"
+	rel="stylesheet">
+<link rel="stylesheet" href='{% static "fonts/icomoon/style.css" %}'>
 
-    <link rel="stylesheet" href='{% static "fonts/flaticon/font/flaticon.css" %}'>
+<link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+<link rel="stylesheet" href='{% static "css/jquery-ui.css" %}'>
+<link rel="stylesheet" href='{% static "css/owl.carousel.min.css" %}'>
+<link rel="stylesheet"
+	href='{% static "css/owl.theme.default.min.css" %}'>
+<link rel="stylesheet"
+	href='{% static "css/owl.theme.default.min.css" %}'>
 
-    <link rel="stylesheet" href='{% static "css/aos.css" %}'>
+<link rel="stylesheet" href='{% static "css/jquery.fancybox.min.css" %}'>
 
-    <link rel="stylesheet" href='{% static "css/style.css" %}'>
-    
-  </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  
-  <div class="site-wrap">
+<link rel="stylesheet"
+	href='{% static "css/bootstrap-datepicker.css" %}'>
 
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-   
-    
-    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-      
-      <div class="container-fluid">
-        <div class="d-flex align-items-center">
-          <div class="site-logo mr-auto w-25"><a href="">ChamFION</a></div>
+<link rel="stylesheet"
+	href='{% static "fonts/flaticon/font/flaticon.css" %}'>
 
-          <div class="mx-auto text-center">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                <li><a href="#home-section" class="nav-link">Home</a></li>
-                <li><a href="#Squadmaker-section" class="nav-link">Squad Maker</a></li>
-                <li><a href="#teachers-section" class="nav-link">Analysis</a></li>
-                <li><a href="#Topplayer-section" class="nav-link">Top Player</a></li>
-              </ul>
-            </nav>
-          </div>
+<link rel="stylesheet" href='{% static "css/aos.css" %}'>
 
-          <div class="ml-auto w-25">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                <li class="cta"><a href="#contact-section" class="nav-link"><span>Contact Us</span></a></li>
-              </ul>
-            </nav>
-            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
-          </div>
-        </div>
-      </div>
-      
-    </header>
+<link rel="stylesheet" href='{% static "css/style.css" %}'>
 
-    <div class="intro-section" id="home-section">
-      
-      <div class="slide-1" style="background-image: url('images/hero_1.jpg');" data-stellar-background-ratio="0.5">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-12">
-              <div class="row align-items-center">
-                <div class="col-lg-6 mb-4">
-                  <h1  data-aos="fade-up" data-aos-delay="100">Live & Breathe Football</h1>
-                  <p class="mb-4"  data-aos="fade-up" data-aos-delay="200">대한민국 대표 혜자게임 피파 온라인 4</p>
-                </div>
+<link href='http://fonts.googleapis.com/css?family=Lobster'
+	rel='stylesheet' type='text/css'>
 
-                <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
-                  <form action="/myapp/search/" method="get" class="form-box" >
-                    <h3 class="h4 text-black mb-4">닉네임을 입력해 주세요</h3>
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="닉네임을 입력해 주세요" name="ID">
-                    </div>
-             
-                    <div class="form-group">
-                      <input type="submit" class="btn btn-primary btn-pill" value="검색">
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
+<script type="text/javascript">
+	function zoomIn(event) {
+		event.target.style.transform = "scale(3.5)";
+		event.target.style.zIndex = 100;
+		event.target.style.transition = "all 0.5s";
+	}
 
-    
-    <div class="site-section courses-title" id="Squadmaker-section">
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-lg-10 text-center" data-aos="fade-up" data-aos-delay="">
-            <h2 class="section-title">Squad Maker</h2>
-             <img src='{% static "images/samplesqd.PNG"  %}' align="left" width="600px">
-             <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat aut neque! Doloribus sunt non aut reiciendis, vel recusandae obcaecati hic dicta repudiandae in quas quibusdam ullam, illum sed veniam!</p>
-               >
+	function zoomOut(event) {
+		event.target.style.transform = "scale(1)";
+		event.target.style.zIndex = 0;
+		event.target.style.transition = "all 0.5s";
+	}
+</script>
 
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100">
-      <div class="container">
-        <div class="row">
+<style>
+.slide-1::before {
+	opacity: 0.2
+}
 
+#home-section {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#Squadmaker-section {
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.97
+}
+
+#teachers-section {
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.97
+}
+
+#teachers-section {
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.97
+}
+
+#Topplayer-section {
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.97
+}
+
+#contact-section {
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.97
+}
+
+.sticky-wrapper.is-sticky .site-navbar {
+	background: #1C202A;
+}
+
+.sticky-wrapper.is-sticky .site-navbar .site-menu>li>a {
+	color: #fff;
+}
+
+.sticky-wrapper.is-sticky .site-navbar .site-logo a {
+	color: #fff;
+}
+
+.section-title {
+	color: #fff;
+}
+
+body {
+	line-height: 1.7;
+	color: #fff;
+	font-weight: 300;
+	font-size: 1.1rem;
+}
+
+.teacher {
+	border: 0px solid rgba(255, 255, 255, .2);
+	padding: 30px;
+	margin-bottom: 5rem;
+}
+
+#zi {
+	border: 2px solid rgba(125, 125, 125, .5);
+}
+
+
+.text-black {
+    color: #7971ea !important;
+    font-weight:bold;
+}
+
+
+</style>
+
+
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target"
+	data-offset="300">
+
+	<div class="site-wrap">
+
+		<div class="site-mobile-menu site-navbar-target">
+			<div class="site-mobile-menu-header">
+				<div class="site-mobile-menu-close mt-3">
+					<span class="icon-close2 js-menu-toggle"></span>
+				</div>
+			</div>
+			<div class="site-mobile-menu-body"></div>
+		</div>
+
+
+		<header class="site-navbar py-4 js-sticky-header site-navbar-target"
+			role="banner">
+
+			<div class="container-fluid">
+				<div class="d-flex align-items-center">
+					<div class="site-logo mr-auto w-25">
+						<a href="">ChamFION</a>
+					</div>
+
+					<div class="mx-auto text-center">
+						<nav class="site-navigation position-relative text-right"
+							role="navigation">
+							<ul
+								class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+								<li><a href="#home-section" class="nav-link">Home</a></li>
+								<li><a href="#Squadmaker-section" class="nav-link">Squad
+										Maker</a></li>
+								<li><a href="#teachers-section" class="nav-link">Analysis</a></li>
+								<li><a href="#Topplayer-section" class="nav-link">Top
+										Player</a></li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="ml-auto w-25">
+						<nav class="site-navigation position-relative text-right"
+							role="navigation">
+							<ul
+								class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+								<li class="cta"><a href="#contact-section" class="nav-link"><span>STAFF</span></a></li>
+							</ul>
+						</nav>
+						<a href="#"
+							class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span
+							class="icon-menu h3"></span></a>
+					</div>
+				</div>
+			</div>
+
+		</header>
+
+		<div class="intro-section" id="home-section"
+			style="background-image: url('/static/images/bg1.png')">
+			<div class="slide-1" data-stellar-background-ratio="0.5">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-12">
+							<div class="row align-items-center">
+								<div class="col-lg-6 mb-4">
+									<h1 style="font-size:45px;" data-aos="fade-up" data-aos-delay="100">Live & Breathe
+										Football</h1>
+									<p style="font-weight:bold;font-size:35px; color:#fff;" class="mb-4" data-aos="fade-up" data-aos-delay="200">ChamFION</p>
+									<p class="mb-4" data-aos="fade-up" data-aos-delay="200">
+										
+										Data based on NEXON DEVELOPERS</p>
+										
+									
+										
+								</div>
+
+								<div class="col-lg-5 ml-auto" data-aos="fade-up"
+									data-aos-delay="500">
+									<form action="/myapp/search/" method="get" class="form-box">
+										<h3 class="h4 text-black mb-4" style="color: #7971ea;">닉네임을
+											입력해 주세요</h3>
+										<div class="form-group">
+											<input type="text" class="form-control"
+												placeholder="Nickname" name="ID">
+										</div>
+
+										<div class="form-group">
+											<input type="submit" class="btn btn-primary btn-pill"
+												value="검색">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="site-section courses-title" id="Squadmaker-section"
+			style="background-image: url('/static/images/bg4.png')">
+
+			<div class="container">
+				<div class="row mb-5 justify-content-center">
+					<div class="col-lg-10 text-center" data-aos="fade-up"
+						data-aos-delay="300">
+						<h2 class="section-title">Squad Maker</h2>
+						<img src="/static/images/squad.png" width="700" height="500"
+							data-aos="fade-up" data-aos-delay="500">
+						<p style="color: #fff; font-weight: bold; margin: 30px;"
+							data-aos="fade-up" data-aos-delay="700">스쿼드 메이커를 통해 포지션별 선수
+							추천 받기</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="site-section" id="teachers-section"
+			style="background-image: url('/static/images/bg2.png')">
+			<div class="container">
+				<div class="row mb-5 justify-content-center">
+					<div class="col-lg-7 mb-5 text-center" data-aos="fade-up"
+						data-aos-delay="">
+						<h2 class="section-title">Analysis</h2>
+
+					</div>
+				</div>
+
+				<div class="row" style="margin-top: 20%; margin-bottom: 10%;">
+					<div class="col-md-6 col-lg-6" data-aos="fade-up"
+						data-aos-delay="200">
+						<div class="teacher text-center">
+							<img id="zi" src="/static/images/analysis_1.JPG" alt="Image"
+								class="img-fluid w-50 rounded-squard mx-auto mb-4"
+								onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+							<div class="py-2">
+								<h3 class="text-black">경기 기록</h3>
+								<p>최근 20경기 내역</p>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-6" data-aos="fade-up"
+						data-aos-delay="400">
+						<div class="teacher text-center">
+							<img id="zi" src="/static/images/analysis_2.JPG" alt="Image"
+								class="img-fluid w-50 rounded-squard mx-auto mb-4"
+								onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+							<div class="py-2">
+								<h3 class="text-black">상세 정보</h3>
+								<p>경기별 상세 스텟</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="site-section courses-title" id="Topplayer-section"
+			style="background-image: url('/static/images/bg3.png')">
+			<div class="container">
+				<div class="row mb-5 justify-content-center">
+					<div class="col-lg-7 text-center" data-aos="fade-up"
+						data-aos-delay="">
+						<h2 class="section-title">Top Player</h2>
+
+					</div>
+				</div>
+
+			</div>
+			<div class="site-section courses-entry-wrap" data-aos="fade-up" data-aos-delay="100">
+				<div class="container" style="margin-top:13%">
+					<div class="row">
+				
+					<div class="owl-carousel col-12 nonloop-block-14">
+<!-- ###################################################################################################################################################### -->
+						<div class="course bg-white h-100 align-self-stretch" >
+							<figure id="tp_0" class="m-0" style="background: rgba(0,0,0,0.5);">
+							
+							</figure>
+							<div class="d-flex border-top stats" style="background: rgba(0,0,0,0.8);" >
+								<div class="py-3 px-4" style="margin-bottom:">
+									<span class="icon-users" id="tpc_0"> </span> 
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="course bg-white h-100 align-self-stretch" >
+							<figure id="tp_3" class="m-0" style="background: rgba(0,0,0,0.5);">
+							
+							</figure>
+							<div class="d-flex border-top stats" style="background: rgba(0,0,0,0.8);" >
+								<div class="py-3 px-4" style="margin-bottom:">
+									<span class="icon-users" id="tpc_3"> </span> 
+								</div>
+							</div>
+						</div>
+						
+						<div class="course bg-white h-100 align-self-stretch" >
+							<figure id="tp_4" class="m-0" style="background: rgba(0,0,0,0.5);">
+							
+							</figure>
+							<div class="d-flex border-top stats" style="background: rgba(0,0,0,0.8);" >
+								<div class="py-3 px-4" style="margin-bottom:">
+									<span class="icon-users" id="tpc_4"> </span> 
+								</div>
+							</div>
+						</div>
+						
+						
+						
+						<div class="course bg-white h-100 align-self-stretch" >
+							<figure id="tp_6" class="m-0" style="background: rgba(0,0,0,0.5);">
+							
+							</figure>
+							<div class="d-flex border-top stats" style="background: rgba(0,0,0,0.8);" >
+								<div class="py-3 px-4" style="margin-bottom:">
+									<span class="icon-users" id="tpc_6"> </span> 
+								</div>
+							</div>
+						</div>
+						
+						<div class="course bg-white h-100 align-self-stretch" >
+							<figure id="tp_7" class="m-0" style="background: rgba(0,0,0,0.5);">
+							
+							</figure>
+							<div class="d-flex border-top stats" style="background: rgba(0,0,0,0.8);" >
+								<div class="py-3 px-4" style="margin-bottom:">
+									<span class="icon-users" id="tpc_7"> </span> 
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="course bg-white h-100 align-self-stretch" >
+							<figure id="tp_9" class="m-0" style="background: rgba(0,0,0,0.5);">
+							
+							</figure>
+							<div class="d-flex border-top stats" style="background: rgba(0,0,0,0.8);" >
+								<div class="py-3 px-4" style="margin-bottom:">
+									<span class="icon-users" id="tpc_9"> </span> 
+								</div>
+							</div>
+						</div>
+						
+					
+						
+						<div class="course bg-white h-100 align-self-stretch" >
+							<figure id="tp_11" class="m-0" style="background: rgba(0,0,0,0.5);">
+							
+							</figure>
+							<div class="d-flex border-top stats" style="background: rgba(0,0,0,0.8);" >
+								<div class="py-3 px-4" style="margin-bottom:">
+									<span class="icon-users" id="tpc_11"> </span> 
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="course bg-white h-100 align-self-stretch" >
+							<figure id="tp_18" class="m-0" style="background: rgba(0,0,0,0.5);">
+							
+							</figure>
+							<div class="d-flex border-top stats" style="background: rgba(0,0,0,0.8);" >
+								<div class="py-3 px-4" style="margin-bottom:">
+									<span class="icon-users" id="tpc_18"> </span> 
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="course bg-white h-100 align-self-stretch" >
+							<figure id="tp_23" class="m-0" style="background: rgba(0,0,0,0.5);">
+							
+							</figure>
+							<div class="d-flex border-top stats" style="background: rgba(0,0,0,0.8);" >
+								<div class="py-3 px-4" style="margin-bottom:">
+									<span class="icon-users" id="tpc_23"> </span> 
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="course bg-white h-100 align-self-stretch" >
+							<figure id="tp_25" class="m-0" style="background: rgba(0,0,0,0.5);">
+							
+							</figure>
+							<div class="d-flex border-top stats" style="background: rgba(0,0,0,0.8);" >
+								<div class="py-3 px-4" style="margin-bottom:">
+									<span class="icon-users" id="tpc_25"> </span> 
+								</div>
+							</div>
+						</div>
+						
+				
+						
+						<div class="course bg-white h-100 align-self-stretch" >
+							<figure id="tp_27" class="m-0" style="background: rgba(0,0,0,0.5);">
+							
+							</figure>
+							<div class="d-flex border-top stats" style="background: rgba(0,0,0,0.8);" >
+								<div class="py-3 px-4" style="margin-bottom:">
+									<span class="icon-users" id="tpc_27"> </span> 
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-7 text-center">
+						<button class="customPrevBtn btn btn-primary m-1">Prev</button>
+						<button class="customNextBtn btn btn-primary m-1">Next</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="site-section bg-light" id="contact-section"
+         style="background-image: url('/static/images/bg5.png')">
+         <div class="container">
+            <div class="row mb-7 justify-content-center">
+               <div class="col-lg-10 text-center" data-aos="fade-up"
+                     data-aos-delay="300">
+                  <h2 class="section-title mb-3">STAFF</h2>
+                  <p style="color: #fff; font-weight:bold; margin: 30px;">IITP 빅데이터 스마트인재 양성교육</p>
+               
+               </div>
+                     <div class="text-center" style="background-size :440px 700px;background-image: url('/static/images/grass.png'); border: 5px solid rgba( 255, 255, 255, 0.5 ); float: left; height : 700px; width: 40%; padding:10px;margin:0 10px 10px 10px">
+                          
+                        <div class="text-center" style="height : 90%; width: 100%; padding:10px;margin:10px 0px">
+                        
+                              <div style ="float: left;height : 33%; width: 100%;text-align : center; padding:50px 160px ;margin:2.5px auto">
+                              
+                                 <div style="background-size : 100px;background-image: url('/static/images/leecard.png') ;float : left;text-align : center;width:100px;height:160px;"></div>
+                                 </div>
+                                 
+                                 <div class="text-left" style="float: left;height : 33%; width: 100%; padding:50px;margin:2.5px auto">
+                                    <div style="background-size : 100px;background-image: url('/static/images/parkcard.png') ;float : left;text-align : center;width:100px;height:160px;"></div>
+                                    <div style="background-size : 100px;background-image: url('/static/images/hongcard.png') ;float : right;text-align : center;width:100px;height:160px;"></div>
+                                 </div>
+                                 
+                                 <div class="text-left" style="float: left;height : 33%; width: 100%; padding:50px 160px; margin:2.5px auto">
+                                    <div style="background-size : 100px;background-image: url('/static/images/ancard.png') ;float : left;text-align : center;width:100px;height:160px;"></div>
+                           
+                              </div>
+                           </div>
+                        
+                     </div>
+                  <div style="border: 5px solid rgba( 255, 255, 255, 0 ); background-color: rgba( 102, 102, 102, 0 ); float: left;height : 700px; width: 40%; padding:10px;">
+                     <div class="text-left" style=" background-color: rgba(  102, 102, 102, 0.8 ); float: left;height : 25%; width: 100%; padding:10px;margin:2.5px auto">
+                        <div class="text-left" style="background-size : 110px 150px;background-image: url('/static/images/lee.png');border: 5px solid rgba( 125, 125, 125, 1 );float: left;height : 100%; width: 30%; padding:10px;margin:2.5px">
          
-
-        </div>
-      </div>
-    </div>
-
-
-   
-    <div class="site-section" id="teachers-section">
-      <div class="container">
-
-        <div class="row mb-5 justify-content-center">
-          <div class="col-lg-7 mb-5 text-center"  data-aos="fade-up" data-aos-delay="">
-            <h2 class="section-title">Analysis</h2>
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat aut neque! Doloribus sunt non aut reiciendis, vel recusandae obcaecati hic dicta repudiandae in quas quibusdam ullam, illum sed veniam!</p>
-          </div>
-        </div>
-
-        <div class="row">
-
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="teacher text-center">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
-              <div class="py-2">
-                <h3 class="text-black">Benjamin Stone</h3>
-                <p class="position">Physics Teacher</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit delectus enim iusto tempora, adipisci at provident.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="teacher text-center">
-              <img src="images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
-              <div class="py-2">
-                <h3 class="text-black">Katleen Stone</h3>
-                <p class="position">Physics Teacher</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit delectus enim iusto tempora, adipisci at provident.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="teacher text-center">
-              <img src="images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
-              <div class="py-2">
-                <h3 class="text-black">Sadie White</h3>
-                <p class="position">Physics Teacher</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit delectus enim iusto tempora, adipisci at provident.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-     <div class="site-section courses-title" id="Topplayer-section">
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-            <h2 class="section-title">Top Player</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="site-section courses-entry-wrap"  data-aos="fade-up" data-aos-delay="100">
-      <div class="container">
-        <div class="row">
-
-          <div class="owl-carousel col-12 nonloop-block-14">
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$20</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">Study Law of Physics</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$99</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">Logo Design Course</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_3.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$99</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">JS Programming Language</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_4.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$20</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">Study Law of Physics</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_5.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$99</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">Logo Design Course</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-            <div class="course bg-white h-100 align-self-stretch">
-              <figure class="m-0">
-                <a href="course-single.html"><img src="images/img_6.jpg" alt="Image" class="img-fluid"></a>
-              </figure>
-              <div class="course-inner-text py-4 px-4">
-                <span class="course-price">$99</span>
-                <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
-                <h3><a href="#">JS Programming Language</a></h3>
-                <p>Lorem ipsum dolor sit amet ipsa nulla adipisicing elit. </p>
-              </div>
-              <div class="d-flex border-top stats">
-                <div class="py-3 px-4"><span class="icon-users"></span> 2,193 students</div>
-                <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-7 text-center">
-            <button class="customPrevBtn btn btn-primary m-1">Prev</button>
-            <button class="customNextBtn btn btn-primary m-1">Next</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="site-section bg-image overlay" style="background-image: url('images/hero_1.jpg');">
-      <div class="container">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-md-8 text-center testimony">
-            <img src="images/person_4.jpg" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
-            <h3 class="mb-4">Jerome Jensen</h3>
-            <blockquote>
-              <p>&ldquo; Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum rem soluta sit eius necessitatibus voluptate excepturi beatae ad eveniet sapiente impedit quae modi quo provident odit molestias! Rem reprehenderit assumenda &rdquo;</p>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="site-section pb-0">
-
-      <div class="future-blobs">
-        <div class="blob_2">
-          <img src="images/blob_2.svg" alt="Image">
-        </div>
-        <div class="blob_1">
-          <img src="images/blob_1.svg" alt="Image">
-        </div>
-      </div>
-      <div class="container">
-        <div class="row mb-5 justify-content-center" data-aos="fade-up" data-aos-delay="">
-          <div class="col-lg-7 text-center">
-            <h2 class="section-title">Why Choose Us</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 ml-auto align-self-start"  data-aos="fade-up" data-aos-delay="100">
-
-            <div class="p-4 rounded bg-white why-choose-us-box">
-
-              <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
-                <div class="mr-3"><span class="custom-icon-inner"><span class="icon icon-graduation-cap"></span></span></div>
-                <div><h3 class="m-0">22,931 Yearly Graduates</h3></div>
-              </div>
-
-              <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
-                <div class="mr-3"><span class="custom-icon-inner"><span class="icon icon-university"></span></span></div>
-                <div><h3 class="m-0">150 Universities Worldwide</h3></div>
-              </div>
-
-              <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
-                <div class="mr-3"><span class="custom-icon-inner"><span class="icon icon-graduation-cap"></span></span></div>
-                <div><h3 class="m-0">Top Professionals in The World</h3></div>
-              </div>
-
-              <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
-                <div class="mr-3"><span class="custom-icon-inner"><span class="icon icon-university"></span></span></div>
-                <div><h3 class="m-0">Expand Your Knowledge</h3></div>
-              </div>
-
-              <div class="d-flex align-items-center custom-icon-wrap custom-icon-light mb-3">
-                <div class="mr-3"><span class="custom-icon-inner"><span class="icon icon-graduation-cap"></span></span></div>
-                <div><h3 class="m-0">Best Online Teaching Assistant Courses</h3></div>
-              </div>
-
-              <div class="d-flex align-items-center custom-icon-wrap custom-icon-light">
-                <div class="mr-3"><span class="custom-icon-inner"><span class="icon icon-university"></span></span></div>
-                <div><h3 class="m-0">Best Teachers</h3></div>
-              </div>
-
-            </div>
-
-
-          </div>
-          <div class="col-lg-7 align-self-end"  data-aos="fade-left" data-aos-delay="200">
-            <img src="images/person_transparent.png" alt="Image" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    
-
-
-
-    <div class="site-section bg-light" id="contact-section">
-      <div class="container">
-
-        <div class="row justify-content-center">
-          <div class="col-md-7">
-
-
-            
-            <h2 class="section-title mb-3">Message Us</h2>
-            <p class="mb-5">Natus totam voluptatibus animi aspernatur ducimus quas obcaecati mollitia quibusdam temporibus culpa dolore molestias blanditiis consequuntur sunt nisi.</p>
-          
-            <form method="post" data-aos="fade">
-              <div class="form-group row">
-                <div class="col-md-6 mb-3 mb-lg-0">
-                  <input type="text" class="form-control" placeholder="First name">
-                </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Last name">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <input type="text" class="form-control" placeholder="Subject">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <input type="email" class="form-control" placeholder="Email">
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <textarea class="form-control" id="" cols="30" rows="10" placeholder="Write your message here."></textarea>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-md-6">
+                        </div>
+                        <div class="text-left" style="float: left;height : 100%; width: 65%; padding:10px;margin:2.5px auto">
+                             <p style="font-size: 15px">이신우</p>
+                           <p style="font-size: 15px">29살</p>
+                           <p style="font-size: 15px">기입!!!!!!!!!!!!!!!!!!!!!!!!</p>
+                        </div>
+                     </div>
+                     
+                     <div class="text-left" style=" background-color: rgba( 102, 102, 102, 0.8 ); float: left;height : 25%; width: 100%; padding:10px;margin:2.5px auto">
+                        <div class="text-left" style="background-size : 110px 150px;background-image: url('/static/images/park.png');border: 5px solid rgba( 125, 125, 125, 1 );float: left;height : 100%; width: 30%; padding:10px;margin:2.5px">
+         
+                        </div>
+                        <div class="text-left" style="float: left;height : 100%; width: 65%; padding:10px;margin:2.5px auto">
+                             <p style="font-size: 15px">박상준</p>
+                           <p style="font-size: 15px">27살</p>
+                           <p style="font-size: 15px">데이터 전처리 , 웹 서비스 구현 ,<br>API 연동</p>
+                         
+                        </div>
+                     </div>
+                     
+                     <div class="text-left" style="background-color: rgba( 102, 102, 102, 0.8 ); float: left;height : 25%; width: 100%; padding:10px;margin:2.5px auto">
+                     
+                        <div class="text-left" style="background-size : 110px 150px; background-image: url('/static/images/hong.png');border: 5px solid rgba( 125, 125, 125, 1 );float: left;height : 100%; width: 30%; padding:10px;margin:2.5px">
+                        </div>
+                        <div class="text-left" style="float: left;height : 100%; width: 65%; padding:10px;margin:2.5px auto">
+                             <p style="font-size: 15px">홍진영</p>
+                           <p style="font-size: 15px">26살</p>
+                           <p style="font-size: 15px">데이터 전처리 , 모델 구축</p>
+                         
+                        </div>
+                     </div>
+                     
+                     <div class="text-left" style=" background-color: rgba( 102, 102, 102, 0.8 ); float: left;height : 25%; width: 100%; padding:10px;margin:2.5px auto">
+                        <div class="text-left" style="background-size : 110px 150px;background-image: url('/static/images/an.png'); border: 5px solid rgba( 125, 125, 125, 1 );float: left;height : 100%; width: 30%; padding:10px;margin:2.5px">
+                          
+                        </div>
+                        <div class="text-left" style="float: left;height : 100%; width: 65%; padding:10px;margin:2.5px auto">
+                            <p style="font-size: 15px">안 창</p>
+                           <p style="font-size: 15px">27살</p>
+                           <p style="font-size: 15px">웹 서비스 구현 , 데이터 베이스 구현 , API 연동</p>
+                        </div>
+                        </div>
+                  </div>
                   
-                  <input type="submit" class="btn btn-primary py-3 px-5 btn-block btn-pill" value="Send Message">
-                </div>
-              </div>
-
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-     
-    <footer class="footer-section bg-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <h3>About OneSchool</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro consectetur ut hic ipsum et veritatis corrupti. Itaque eius soluta optio dolorum temporibus in, atque, quos fugit sunt sit quaerat dicta.</p>
-          </div>
-
-          <div class="col-md-3 ml-auto">
-            <h3>Links</h3>
-            <ul class="list-unstyled footer-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Courses</a></li>
-              <li><a href="#">Programs</a></li>
-              <li><a href="#">Teachers</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-4">
-            <h3>Subscribe</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt incidunt iure iusto architecto? Numquam, natus?</p>
-            <form action="#" class="footer-subscribe">
-              <div class="d-flex mb-5">
-                <input type="text" class="form-control rounded-0" placeholder="Email">
-                <input type="submit" class="btn btn-primary rounded-0" value="Subscribe">
-              </div>
-            </form>
-          </div>
-
-        </div>
-
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
-            <p>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      </p>
+               </div>
             </div>
-          </div>
-          
-        </div>
-      </div>
-    </footer>
+         </div>
+	
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+	          $.ajax({
+	            type : 'GET',                 //get방식으로 통신
+	            url : '/static/jsondata/position0.json/',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+	            dataType : "json",            //html형식으로 값 읽기
+	            error : function() {          //통신 실패시
+	              alert('통신실패!');
+	            },
+	            success:function(data) {
+	              $('#tp_0').html("");
+	              $('#tp_0').append("<div class="+"'course-inner-text py-4 px-4'" +">");
+	              $('#tp_0').append("<span class="+"'course-price'" +">GK</span></div>");
+	              $('#tp_0').append("<img style="+"'margin-left:27%;width:150px;height:250px; '"+"class="+"'img-fluid '" + "src="+ "'http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+data[0].seasonName+".png'"+ ">");
+	              $('#tp_0').append("<img style="+"'position: absolute; top: 34%; left: 39%; width: 110px; height: 120px; '"+"src="+"'https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+ data[0].spId.substring(3,9) +".png?rd='201910290610'"+">");
+	              $('#tp_0').append("<img style="+"'position: absolute; top: 57.5%; left: 32%; width: 20px; height: 17px;'" +"src="+"'http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+data[0].seasonName+".png'"+">");
+	              $('#tp_0').append("<div style="+"'width: 100px; top: 62%; left: 50%; position: absolute; transform: translate(-50%, 50%)'"+">"+"<p style="+"'text-align: center; font-family: 맑은고딕;'"+"><font size="+"'4 '" + "color="+"'black'"+">"+ data[1].name +"</font></p></div>");
+	              $('#tpc_0').append(data[0].count+" count")
+	              
+	            }
+	        });
+	          
+	          $.ajax({
+		            type : 'GET',                 //get방식으로 통신
+		            url : '/static/jsondata/position3.json/',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+		            dataType : "json",            //html형식으로 값 읽기
+		            error : function() {          //통신 실패시
+		              alert('통신실패!');
+		            },
+		            success:function(data) {
+		              $('#tp_3').html("");
+		              $('#tp_3').append("<div class="+"'course-inner-text py-4 px-4'" +">");
+		              $('#tp_3').append("<span class="+"'course-price'" +">RB</span></div>");
+		              $('#tp_3').append("<img style="+"'margin-left:27%;width:150px;height:250px; '"+"class="+"'img-fluid '" + "src="+ "'http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+data[0].seasonName+".png'"+ ">");
+		              $('#tp_3').append("<img style="+"'position: absolute; top: 34%; left: 39%; width: 110px; height: 120px; '"+"src="+"'http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/playersAction/p"+ data[0].spId +".png?rd='201910290610'"+">");
+		              $('#tp_3').append("<img style="+"'position: absolute; top: 57.5%; left: 32%; width: 20px; height: 17px;'" +"src="+"'http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+data[0].seasonName+".png'"+">");
+		              $('#tp_3').append("<div style="+"'width: 100px; top: 62%; left: 50%; position: absolute; transform: translate(-50%, 50%)'"+">"+"<p style="+"'text-align: center; font-family: 맑은고딕;'"+"><font size="+"'4 '" + "color="+"'black'"+">"+ data[0].name +"</font></p></div>");
+		              $('#tpc_3').append(data[0].count+" count")
+		              
+		            }
+		        });
+	          
+	          $.ajax({
+		            type : 'GET',                 //get방식으로 통신
+		            url : '/static/jsondata/position4.json/',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+		            dataType : "json",            //html형식으로 값 읽기
+		            error : function() {          //통신 실패시
+		              alert('통신실패!');
+		            },
+		            success:function(data) {
+		              $('#tp_4').html("");
+		              $('#tp_4').append("<div class="+"'course-inner-text py-4 px-4'" +">");
+		              $('#tp_4').append("<span class="+"'course-price'" +">RCB</span></div>");
+		              $('#tp_4').append("<img style="+"'margin-left:27%;width:150px;height:250px; '"+"class="+"'img-fluid '" + "src="+ "'http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+data[0].seasonName+".png'"+ ">");
+		              $('#tp_4').append("<img style="+"'position: absolute; top: 34%; left: 39%; width: 110px; height: 120px; '"+"src="+"'http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/playersAction/p"+ data[0].spId+".png?rd='201910290610'"+">");
+		              $('#tp_4').append("<img style="+"'position: absolute; top: 57.5%; left: 32%; width: 20px; height: 17px;'" +"src="+"'http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+data[0].seasonName+".png'"+">");
+		              $('#tp_4').append("<div style="+"'width: 100px; top: 62%; left: 50%; position: absolute; transform: translate(-50%, 50%)'"+">"+"<p style="+"'text-align: center; font-family: 맑은고딕;'"+"><font size="+"'4 '" + "color="+"'black'"+">"+ data[0].name +"</font></p></div>");
+		              $('#tpc_4').append(data[0].count+" count")
+		              
+		            }
+		        });
+	          $.ajax({
+		            type : 'GET',                 //get방식으로 통신
+		            url : '/static/jsondata/position6.json/',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+		            dataType : "json",            //html형식으로 값 읽기
+		            error : function() {          //통신 실패시
+		              alert('통신실패!');
+		            },
+		            success:function(data) {
+		              $('#tp_6').html("");
+		              $('#tp_6').append("<div class="+"'course-inner-text py-4 px-4'" +">");
+		              $('#tp_6').append("<span class="+"'course-price'" +">LCB</span></div>");
+		              $('#tp_6').append("<img style="+"'margin-left:27%;width:150px;height:250px; '"+"class="+"'img-fluid '" + "src="+ "'http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+data[0].seasonName+".png'"+ ">");
+		              $('#tp_6').append("<img style="+"'position: absolute; top: 34%; left: 39%; width: 110px; height: 120px; '"+"src="+"'https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+ data[0].spId.substring(5,9) +".png?rd='201910290610'"+">");
+		              $('#tp_6').append("<img style="+"'position: absolute; top: 57.5%; left: 32%; width: 20px; height: 17px;'" +"src="+"'http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+data[0].seasonName+".png'"+">");
+		              $('#tp_6').append("<div style="+"'width: 100px; top: 62%; left: 50%; position: absolute; transform: translate(-50%, 50%)'"+">"+"<p style="+"'text-align: center; font-family: 맑은고딕;'"+"><font size="+"'4 '" + "color="+"'black'"+">"+ data[0].name +"</font></p></div>");
+		              $('#tpc_6').append(data[0].count+" count")
+		              
+		            }
+		        });
+	          
+	          $.ajax({
+		            type : 'GET',                 //get방식으로 통신
+		            url : '/static/jsondata/position7.json/',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+		            dataType : "json",            //html형식으로 값 읽기
+		            error : function() {          //통신 실패시
+		              alert('통신실패!');
+		            },
+		            success:function(data) {
+		              $('#tp_7').html("");
+		              $('#tp_7').append("<div class="+"'course-inner-text py-4 px-4'" +">");
+		              $('#tp_7').append("<span class="+"'course-price'" +">LB</span></div>");
+		              $('#tp_7').append("<img style="+"'margin-left:27%;width:150px;height:250px; '"+"class="+"'img-fluid '" + "src="+ "'http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+data[0].seasonName+".png'"+ ">");
+		              $('#tp_7').append("<img style="+"'position: absolute; top: 34%; left: 39%; width: 110px; height: 120px; '"+"src="+"'https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+ data[0].spId +".png?rd='201910290610'"+">");
+		              $('#tp_7').append("<img style="+"'position: absolute; top: 57.5%; left: 32%; width: 20px; height: 17px;'" +"src="+"'http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+data[0].seasonName+".png'"+">");
+		              $('#tp_7').append("<div style="+"'width: 100px; top: 62%; left: 50%; position: absolute; transform: translate(-50%, 50%)'"+">"+"<p style="+"'text-align: center; font-family: 맑은고딕;'"+"><font size="+"'4 '" + "color="+"'black'"+">"+ data[0].name +"</font></p></div>");
+		              $('#tpc_7').append(data[0].count+" count")
+		              
+		            }
+		        });
+	          
+	          $.ajax({
+		            type : 'GET',                 //get방식으로 통신
+		            url : '/static/jsondata/position9.json/',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+		            dataType : "json",            //html형식으로 값 읽기
+		            error : function() {          //통신 실패시
+		              alert('통신실패!');
+		            },
+		            success:function(data) {
+		              $('#tp_9').html("");
+		              $('#tp_9').append("<div class="+"'course-inner-text py-4 px-4'" +">");
+		              $('#tp_9').append("<span class="+"'course-price'" +">RDM</span></div>");
+		              $('#tp_9').append("<img style="+"'margin-left:27%;width:150px;height:250px; '"+"class="+"'img-fluid '" + "src="+ "'http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+data[0].seasonName+".png'"+ ">");
+		              $('#tp_9').append("<img style="+"'position: absolute; top: 34%; left: 39%; width: 110px; height: 120px; '"+"src="+"'https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+ data[0].spId.substring(5,9) +".png?rd='201910290610'"+">");
+		              $('#tp_9').append("<img style="+"'position: absolute; top: 57.5%; left: 32%; width: 20px; height: 17px;'" +"src="+"'http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+data[0].seasonName+".png'"+">");
+		              $('#tp_9').append("<div style="+"'width: 100px; top: 62%; left: 50%; position: absolute; transform: translate(-50%, 50%)'"+">"+"<p style="+"'text-align: center; font-family: 맑은고딕;'"+"><font size="+"'4 '" + "color="+"'black'"+">"+ data[0].name +"</font></p></div>");
+		              $('#tpc_9').append(data[0].count+" count")
+		              
+		            }
+		        });
+	    });
+		
+		
+	
+		
+	
+	
+	
+		
+		$(document).ready(function() {
+	          $.ajax({
+	            type : 'GET',                 //get방식으로 통신
+	            url : '/static/jsondata/position11.json/',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+	            dataType : "json",            //html형식으로 값 읽기
+	            error : function() {          //통신 실패시
+	              alert('통신실패!');
+	            },
+	            success:function(data) {
+	              $('#tp_11').html("");
+	              $('#tp_11').append()
+	              $('#tp_11').append("<div class="+"'course-inner-text py-4 px-4'" +">");
+	              $('#tp_11').append("<span class="+"'course-price'" +">LDM</span></div>");
+	              $('#tp_11').append("<img style="+"'margin-left:27%;width:150px;height:250px; '"+"class="+"'img-fluid '" + "src="+ "'http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+data[0].seasonName+".png'"+ ">");
+	              $('#tp_11').append("<img style="+"'position: absolute; top: 34%; left: 39%; width: 110px; height: 120px; '"+"src="+"'https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+ data[0].spId.substring(5,9) +".png?rd='201910290610'"+">");
+	              $('#tp_11').append("<img style="+"'position: absolute; top: 57.5%; left: 32%; width: 20px; height: 17px;'" +"src="+"'http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+data[0].seasonName+".png'"+">");
+	              $('#tp_11').append("<div style="+"'width: 100px; top: 62%; left: 50%; position: absolute; transform: translate(-50%, 50%)'"+">"+"<p style="+"'text-align: center; font-family: 맑은고딕;'"+"><font size="+"'4 '" + "color="+"'black'"+">"+ data[0].name +"</font></p></div>");
+	              $('#tpc_11').append(data[0].count+" count")
+	              
+	            }
+	        });
+	    });
+		
+		
+		
+		$(document).ready(function() {
+	          $.ajax({
+	            type : 'GET',                 //get방식으로 통신
+	            url : '/static/jsondata/position18.json/',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+	            dataType : "json",            //html형식으로 값 읽기
+	            error : function() {          //통신 실패시
+	              alert('통신실패!');
+	            },
+	            success:function(data) {
+	              $('#tp_18').html("");
+	              $('#tp_18').append()
+	              $('#tp_18').append("<div class="+"'course-inner-text py-4 px-4'" +">");
+	              $('#tp_18').append("<span class="+"'course-price'" +">CAM</span></div>");
+	              $('#tp_18').append("<img style="+"'margin-left:27%;width:150px;height:250px; '"+"class="+"'img-fluid '" + "src="+ "'http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+data[0].seasonName+".png'"+ ">");
+	              $('#tp_18').append("<img style="+"'position: absolute; top: 34%; left: 39%; width: 110px; height: 120px; '"+"src="+"'https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+ data[0].spId.substring(5,9) +".png?rd='201910290610'"+">");
+	              $('#tp_18').append("<img style="+"'position: absolute; top: 57.5%; left: 32%; width: 20px; height: 17px;'" +"src="+"'http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+data[0].seasonName+".png'"+">");
+	              $('#tp_18').append("<div style="+"'width: 100px; top: 62%; left: 50%; position: absolute; transform: translate(-50%, 50%)'"+">"+"<p style="+"'text-align: center; font-family: 맑은고딕;'"+"><font size="+"'4 '" + "color="+"'black'"+">"+ data[0].name +"</font></p></div>");
+	              $('#tpc_18').append(data[0].count+" count")
+	              
+	            }
+	        });
+	    });
+		
+	
+		
+		$(document).ready(function() {
+	          $.ajax({
+	            type : 'GET',                 //get방식으로 통신
+	            url : '/static/jsondata/position23.json/',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+	            dataType : "json",            //html형식으로 값 읽기
+	            error : function() {          //통신 실패시
+	              alert('통신실패!');
+	            },
+	            success:function(data) {
+	              $('#tp_23').html("");
+	              $('#tp_23').append()
+	              $('#tp_23').append("<div class="+"'course-inner-text py-4 px-4'" +">");
+	              $('#tp_23').append("<span class="+"'course-price'" +">RW</span></div>");
+	              $('#tp_23').append("<img style="+"'margin-left:27%;width:150px;height:250px; '"+"class="+"'img-fluid '" + "src="+ "'http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+data[0].seasonName+".png'"+ ">");
+	              $('#tp_23').append("<img style="+"'position: absolute; top: 34%; left: 39%; width: 110px; height: 120px; '"+"src="+"'https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+ data[0].spId.substring(5,9) +".png?rd='201910290610'"+">");
+	              $('#tp_23').append("<img style="+"'position: absolute; top: 57.5%; left: 32%; width: 20px; height: 17px;'" +"src="+"'http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+data[0].seasonName+".png'"+">");
+	              $('#tp_23').append("<div style="+"'width: 100px; top: 62%; left: 50%; position: absolute; transform: translate(-50%, 50%)'"+">"+"<p style="+"'text-align: center; font-family: 맑은고딕;'"+"><font size="+"'4 '" + "color="+"'black'"+">"+ data[0].name +"</font></p></div>");
+	              $('#tpc_23').append(data[0].count+" count")
+	              
+	            }
+	        });
+	    });
+		
+	
+		
+		$(document).ready(function() {
+	          $.ajax({
+	            type : 'GET',                 //get방식으로 통신
+	            url : '/static/jsondata/position25.json/',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+	            dataType : "json",            //html형식으로 값 읽기
+	            error : function() {          //통신 실패시
+	              alert('통신실패!');
+	            },
+	            success:function(data) {
+	              $('#tp_25').html("");
+	              $('#tp_25').append()
+	              $('#tp_25').append("<div class="+"'course-inner-text py-4 px-4'" +">");
+	              $('#tp_25').append("<span class="+"'course-price'" +">ST</span></div>");
+	              $('#tp_25').append("<img style="+"'margin-left:27%;width:150px;height:250px; '"+"class="+"'img-fluid '" + "src="+ "'http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+data[0].seasonName+".png'"+ ">");
+	              $('#tp_25').append("<img style="+"'position: absolute; top: 34%; left: 39%; width: 110px; height: 120px; '"+"src="+"'https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+ data[0].spId.substring(5,9) +".png?rd='201910290610'"+">");
+	              $('#tp_25').append("<img style="+"'position: absolute; top: 57.5%; left: 32%; width: 20px; height: 17px;'" +"src="+"'http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+data[0].seasonName+".png'"+">");
+	              $('#tp_25').append("<div style="+"'width: 100px; top: 62%; left: 50%; position: absolute; transform: translate(-50%, 50%)'"+">"+"<p style="+"'text-align: center; font-family: 맑은고딕;'"+"><font size="+"'4 '" + "color="+"'black'"+">"+ data[0].name +"</font></p></div>");
+	              $('#tpc_25').append(data[0].count+" count")
+	              
+	            }
+	        });
+	    });
 
-  
-    
-  </div> <!-- .site-wrap -->
+	  
+		$(document).ready(function() {
+	          $.ajax({
+	            type : 'GET',                 //get방식으로 통신
+	            url : '/static/jsondata/position27.json/',              //탭의 data-tab속성의 값으로 된 html파일로 통신
+	            dataType : "json",            //html형식으로 값 읽기
+	            error : function() {          //통신 실패시
+	              alert('통신실패!');
+	            },
+	            success:function(data) {
+	              $('#tp_27').html("");
+	              $('#tp_27').append()
+	              $('#tp_27').append("<div class="+"'course-inner-text py-4 px-4'" +">");
+	              $('#tp_27').append("<span class="+"'course-price'" +">LW</span></div>");
+	              $('#tp_27').append("<img style="+"'margin-left:27%;width:150px;height:250px; '"+"class="+"'img-fluid '" + "src="+ "'http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+data[0].seasonName+".png'"+ ">");
+	              $('#tp_27').append("<img style="+"'position: absolute; top: 34%; left: 39%; width: 110px; height: 120px; '"+"src="+"'https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+ data[0].spId.substring(5,9) +".png?rd='201910290610'"+">");
+	              $('#tp_27').append("<img style="+"'position: absolute; top: 57.5%; left: 32%; width: 20px; height: 17px;'" +"src="+"'http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+data[0].seasonName+".png'"+">");
+	              $('#tp_27').append("<div style="+"'width: 100px; top: 62%; left: 50%; position: absolute; transform: translate(-50%, 50%)'"+">"+"<p style="+"'text-align: center; font-family: 맑은고딕;'"+"><font size="+"'4 '" + "color="+"'black'"+">"+ data[0].name +"</font></p></div>");
+	              $('#tpc_27').append(data[0].count+" count")
+	              
+	            }
+	        });
+	    });
+		
+		
+		
+	
+	</script>
+	<!-- .site-wrap -->
 
-  <script src='{% static "js/jquery-3.3.1.min.js" %}'></script>
-  <script src='{% static "js/jquery-migrate-3.0.1.min.js" %}'></script>
-  <script src='{% static "js/jquery-ui.js" %}'></script>
-  <script src='{% static "js/popper.min.js" %}'></script>
-  <script src='{% static "js/bootstrap.min.js" %}'></script>
-  <script src='{% static "js/owl.carousel.min.js" %}'></script>
-  <script src='{% static "js/jquery.stellar.min.js" %}'></script>
-  <script src='{% static "js/jquery.countdown.min.js" %}'></script>
-  <script src='{% static "js/bootstrap-datepicker.min.js" %}'></script>
-  <script src='{% static "js/jquery.easing.1.3.js" %}'></script>
-  <script src='{% static "js/aos.js" %}'></script>
-  <script src='{% static "js/jquery.fancybox.min.js" %}'></script>
-  <script src='{% static "js/jquery.sticky.js" %}'></script>
+	<script src='{% static "js/jquery-3.3.1.min.js" %}'></script>
+	<script src='{% static "js/jquery-migrate-3.0.1.min.js" %}'></script>
+	<script src='{% static "js/jquery-ui.js" %}'></script>
+	<script src='{% static "js/popper.min.js" %}'></script>
+	<script src='{% static "js/bootstrap.min.js" %}'></script>
+	<script src='{% static "js/owl.carousel.min.js" %}'></script>
+	<script src='{% static "js/jquery.stellar.min.js" %}'></script>
+	<script src='{% static "js/jquery.countdown.min.js" %}'></script>
+	<script src='{% static "js/bootstrap-datepicker.min.js" %}'></script>
+	<script src='{% static "js/jquery.easing.1.3.js" %}'></script>
+	<script src='{% static "js/aos.js" %}'></script>
+	<script src='{% static "js/jquery.fancybox.min.js" %}'></script>
+	<script src='{% static "js/jquery.sticky.js" %}'></script>
 
-  
-  <script src='{% static "js/main.js" %}'></script>
-    
-  </body>
+
+	<script src='{% static "js/main.js" %}'></script>
+
+</body>
 </html>

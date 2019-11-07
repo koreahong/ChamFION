@@ -21,6 +21,8 @@ urlpatterns = [
     url(r'^squadform/$', views.squadform), 
     url(r'^Mysquadform/$', views.Mysquadform), 
     url(r'^recommend/$', views.recommend),  
+    url(r'^detail/$', views.detail),
+    url(r'^spdetail/$', views.spdetail),  
     url(r'^takeplayer/$', views.take),  
       
 ]

@@ -23,10 +23,101 @@
       z-index:3;
     }
 
+    .gradefont {
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    line-height: 14px;
+    text-align: center;
+    width: 22px;
+    height: 14px;
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    }
+
+    .grey{
+    background: #45494f;
+    width: 21px;
+    top: 62%;
+    left: 79%;
+    position: absolute;
+    height: 14px;
+    line-height: 0.3;
+    }
+
+    .bronze{
+    background: #c37653;
+    width: 21px;
+    top: 62%;
+    left: 79%;
+    position: absolute;
+    height: 14px;
+    line-height: 0.3;
+    }
+
+    .silver{
+    background: #c2c5ca;
+    width: 21px;
+    top: 62%;
+    left: 79%;
+    position: absolute;
+    height: 14px;
+    line-height: 0.3;
+    }
+
+    .gold{
+    background: #e8c337;
+    width: 21px;
+    top: 62%;
+    left: 79%;
+    position: absolute;
+    height: 14px;
+    line-height: 0.3;
+    }
+    
+    .slide-1:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: .9;
+    border-bottom-right-radius: 0px;
+    background: #0E1015;
+	}
+	
+	.site-section {
+    background: #1C202A;
+	}
+	
+	.text-black {
+    color: #fff !important;
+	}
+	
+	.sticky-wrapper.is-sticky .site-navbar {
+    background: #0E1015;
+	}
+	
+	.sticky-wrapper.is-sticky .site-navbar .site-menu > li > a {
+    
+    color: #fff;
+ 
+	}
+
+	.sticky-wrapper.is-sticky .site-navbar .site-logo a {
+	    color: #fff;
+	}
+	
+
+
+    
 
     </style>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
        <script>
+
+         var jsonObject
              // using jQuery csrftoken
               function getCookie(name) {
                 var cookieValue = null;
@@ -72,8 +163,6 @@
                     request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
                 },
                 success: function (data) {
-                  //받아온 JSON을 테이블에 출력
-                  
 
                   drmatches(data.accessId);
                 },
@@ -118,12 +207,13 @@
                       sub = new Object();     // 객체 값 입력후 main배열의 0번 index에 셋팅
                       sub['spId'] = data.matchInfo[0].player[i].spId; 
                       sub['spPosition'] = data.matchInfo[0].player[i].spPosition;
+                      sub['spGrade'] = data.matchInfo[0].player[i].spGrade;
                       main[cnt] = sub;
                       cnt++;
                       }
                     }
                     console.log(data.matchInfo[0].nickname+"home");
-                    var jsonObject = {list:main}
+                    jsonObject = {list:main}
                     
                     
                     console.log(jsonObject);
@@ -134,12 +224,13 @@
                       sub = new Object();     // 객체 값 입력후 main배열의 0번 index에 셋팅
                       sub['spId'] = data.matchInfo[1].player[i].spId; 
                       sub['spPosition'] = data.matchInfo[1].player[i].spPosition;
+                      sub['spGrade'] = data.matchInfo[1].player[i].spGrade;
                       main[cnt] = sub;
                       cnt++;
                       }
 
                     }
-                    var jsonObject = {list:main}
+                    jsonObject = {list:main}
                     console.log(data.matchInfo[1].nickname+"away");
                     console.log(jsonObject);
                   }
@@ -173,13 +264,12 @@
         text-align: left;
         padding: 8px;
       }
-
-      tr:nth-child(even){background-color: #f2f2f2}
-      tr:hover {background-color:#f5f5f5;}
-      th {
-        background-color: #4CAF50;  
-        color: white;
-      }
+      
+	 body{
+	 color:#fff;
+	 }
+     
+     
     </style>
     
   </head>
@@ -257,15 +347,15 @@
       </div>
     </div>
     
-    <div class="site-section">
-      <div class="container" style = "max-width: 1000px; margin-left:150px;" >
+    <div class="site-section" style="display:flex; ">
+      <div class="container" style = "max-width: 1000px; margin-left:50px;" >
         <div class="row">
           <div class="col-lg-8 mb-5">
             <div class="mb-5">
              
               <h3 class="text-black">스쿼드 메이커 </h3> 
 						              
-						
+					<!-- 	
 						    <select id="selectbox" >
                 <option value="">선택</option>
 						    <option value="f3412">3412</option>
@@ -301,11 +391,11 @@
 						    <option value="f541">541</option>
 						    </select>
 						                           
-					
+				 -->	
               
 					<div>
-					<img src='{% static "images/grass.png" %}' width="770" height="750"></img>	
-						<div id= "squadformation"></div> 															
+					<img style="margin-top:30px;" src= '{% static "images/grass.png" %}' width="770" height="750"></img>	
+						<div id= "squadformation"></div>						
 					</div>
 					
               
@@ -317,19 +407,39 @@
             <div class="col-lg-2">         
               <!--  empty box ( 비율때문에 삽입) -->            
             </div>
-            <div class="col-lg-2">
-                     
-                <h3 class="text-black">선수비교</h3>
-                <table id="tablList" border="1"></table>
-                
-            
-            </div> <!-- right block end -->
+            <!-- right block end -->
 
 
 
           </div> <!--  row end -->
   
         </div>
+
+        <div class="container" style = " position: absolute; max-width: 750px; left:850px;" >
+          <h3 class="text-black">선수비교</h3>
+          <br>
+          <table id = "tablList" class="table table-hover" style="text-align: center; ">
+			  <thead>
+			    <tr>
+			    
+			      <th scope="col" width="20%">추천선수</th>
+			      <th scope="col" width="10%">Season</th>
+			      <th scope="col" width="20%">Name</th>
+			      <th scope="col" width="10%">Pay</th>
+			      <th scope="col" width="10%">Price</th>
+			      <th scope="col" width="10%">강화</th>
+			      <th scope="col" width="20%">선수정보</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
+        </div>
+          
+        </div>
+
+
+
       </div>  
     </div>
 
@@ -382,28 +492,55 @@
             })
 
             function recoplayer(i){
-             $(function () {
+             $(function () {            	 
+            	 jsonObject.selectedposition = i.toString()
+            	 console.log('json')
+            	 console.log(jsonObject)
               //동적으로 원격에 있는 JSON 파일(결과값)을 로드
               $.ajax({
                 url: "/myapp/recommend/",
-                dataType: "json",
+                dataType:'json',
+                type:'POST',
+                data: jsonObject,
                 success: function (data) {
                   //받아온 JSON을 테이블에 출력
-                  $('#tablList').html("");
-                  $('#tablList').append("<th>IMG</th><th>Season</th><th> Name </th><th>Pay</th><th>OVR</th>");
-
+                 
                   $.each(data, function (index, entry) {
-                    $('#tablList').append("<tr onclick=\"takeplayer(\'"+entry["Season"]+"\',\'"+i+"\',\'"+entry["Pnum"]+"\',\'"+entry["Mark"]+"\',\'"+entry["Name"]+"\')\"><td>" + "<img src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/"+entry["Pnum"]+".png?rd=201910080430\">" + "</td><td>" + "<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+entry["Season"]+".png\">" + "</td><td>" + entry["Name"] + "</td><td>" + entry["Pay"] + "</td><td>" + entry["OVR"] + "</td></tr>");
-                    
+                	$('#tablList').append("<tr id =" + i +">");
+                    $("#"+i).append("<td onclick=\"takeplayer(\'"+entry["Season"]+"\',\'"+i+"\',\'"+entry["Pnum"]+"\',\'"+entry["Mark"]+"\',\'"+entry["Name"]+"\')\">" + "<img src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/"+entry["Pnum"]+".png?rd=201910080430\">" + "</td><td>" + "<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+entry["Season"]+".png\">" + "</td><td>" + entry["Name"] + "</td><td>" + entry["Pay"] + "</td><td>" + entry["Price"] + "</td><td>" + entry["spGrade"] + "</td><td onclick=\"detail(\'"+entry["fullspId"]+"\',"+entry["spGrade"]+")\">더보기</td>");
+                    $("#"+i).append("src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/playersAction/p"+nlist+".png?rd=201910290610\" onerror=\"this.src='https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+spID+".png?rd=201910290610'\"")
+             		
                   });
                 },
                 error: function () { alert("에러발생"); }
               });
             });
             }
+            function detail(arg1, arg2){
+             // alert(arg1 +" and "+ arg2)
+
+             /*  var url = "/myapp/detail/";
+              var name = "popup test";
+              
+              window.open(url, name, option); */
+
+
+              var frmPop= document.frmPopup;
+              var url = "/myapp/detail/";
+              var option = "width = 1275, height = 500, top = 100, left = 200, location = no"
+              //var url = 'detail.html'
+              window.open('','popupView', option);  
+              
+              frmPop.action = url;
+              frmPop.target = 'popupView'; //window,open()의 두번째 인수와 같아야 하며 필수다.  
+              frmPop.spid.value = arg1;
+              frmPop.spgrade.value = arg2;  
+              frmPop.submit();  
+
+            }
 
             function takeplayer(season,i,Pnum,Mark,Name){
-              alert(season+","+i+","+Pnum)
+             // alert(season+","+i+","+Pnum)
               
               $(function () {
               //동적으로 원격에 있는 JSON 파일(결과값)을 로드
@@ -413,9 +550,9 @@
                 success: function (data) {
                   //받아온 JSON을 테이블에 출력
                   $('#formationPlayerspp'+i).html("");
-                  $('#formationPlayerspp'+i).append("<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+season+".png\" width=\"120\" height=\"120\" onclick=\"searchplayer(i)\">");
-                  $('#formationPlayerspp'+i).append("<img style=\"position: absolute; top: 15%;left:40%;\" src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/"+Pnum+".png?rd=201910080430\" width=\"72\" height=\"72\" onclick=\"searchplayer(i)\">");
-                  $('#formationPlayerspp'+i).append("<img style=\"position: absolute; top: 57%;left:10%;\" src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+Mark+"_big.png\" width=\"18px\" height=\"18px\" onclick=\"searchplayer(i)\">");
+                  $('#formationPlayerspp'+i).append("<img src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/card/"+season+".png\" width=\"120\" height=\"120\" onclick=\"recoplayer(i)\">");
+                  $('#formationPlayerspp'+i).append("<img style=\"position: absolute; top: 15%;left:40%;\" src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/"+Pnum+".png?rd=201910080430\" width=\"72\" height=\"72\" onclick=\"recoplayer(i)\">");
+                  $('#formationPlayerspp'+i).append("<img style=\"position: absolute; top: 57%;left:10%;\" src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+Mark+"_big.png\" width=\"18px\" height=\"18px\" onclick=\"recoplayer(i)\">");
                 },
                 error: function () { alert("에러발생"); }
               });
@@ -441,9 +578,10 @@
             
 
         </script>
-
-
-
+  <form name="frmPopup">
+  <input type="hidden" name="spid">
+  <input type="hidden" name="spgrade">
+  </form>
 
 	<!-- .site-wrap -->
 
@@ -460,7 +598,6 @@
   <script src='{% static "js/aos.js" %}'></script>
   <script src='{% static "js/jquery.fancybox.min.js" %}'></script>
   <script src='{% static "js/jquery.sticky.js" %}'></script>
-
   
   <script src='{% static "js/main.js" %}'></script>
     

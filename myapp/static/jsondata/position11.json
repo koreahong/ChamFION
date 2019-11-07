@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "201001620",
+		"spGrade": "5",
+		"seasonName": "NHD",
+		"name": "E. 프티",
+		"count": "84945"
+	},
+	{
+		"spId": "207214100",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "58060"
+	},
+	{
+		"spId": "201001419",
+		"spGrade": "5",
+		"seasonName": "NHD",
+		"name": "P. 비에이라",
+		"count": "19795"
+	},
+	{
+		"spId": "214003647",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "M. 발락",
+		"count": "18057"
+	},
+	{
+		"spId": "201001620",
+		"spGrade": "6",
+		"seasonName": "NHD",
+		"name": "E. 프티",
+		"count": "17916"
+	},
+	{
+		"spId": "207214100",
+		"spGrade": "4",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "13899"
+	},
+	{
+		"spId": "207001419",
+		"spGrade": "3",
+		"seasonName": "TT",
+		"name": "P. 비에이라",
+		"count": "13848"
+	},
+	{
+		"spId": "207001419",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "P. 비에이라",
+		"count": "13028"
+	},
+	{
+		"spId": "207214100",
+		"spGrade": "3",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "11122"
+	},
+	{
+		"spId": "207001419",
+		"spGrade": "4",
+		"seasonName": "TT",
+		"name": "P. 비에이라",
+		"count": "10138"
+	}
+]

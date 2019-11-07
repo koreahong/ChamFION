@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "210231281",
+		"spGrade": "5",
+		"seasonName": "GR",
+		"name": "T. 알렉산더-아놀드",
+		"count": "6058"
+	},
+	{
+		"spId": "207005003",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "카푸",
+		"count": "4066"
+	},
+	{
+		"spId": "207188377",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "K. 워커",
+		"count": "3819"
+	},
+	{
+		"spId": "300188377",
+		"spGrade": "6",
+		"seasonName": "18",
+		"name": "K. 워커",
+		"count": "3373"
+	},
+	{
+		"spId": "214201042",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "D. 시디베",
+		"count": "3036"
+	},
+	{
+		"spId": "210235212",
+		"spGrade": "6",
+		"seasonName": "GR",
+		"name": "A. 하키미",
+		"count": "2997"
+	},
+	{
+		"spId": "300188377",
+		"spGrade": "5",
+		"seasonName": "18",
+		"name": "K. 워커",
+		"count": "2731"
+	},
+	{
+		"spId": "214231281",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "T. 알렉산더-아놀드",
+		"count": "2574"
+	},
+	{
+		"spId": "210232270",
+		"spGrade": "5",
+		"seasonName": "GR",
+		"name": "T. 포수-멘사",
+		"count": "2513"
+	},
+	{
+		"spId": "300188377",
+		"spGrade": "7",
+		"seasonName": "18",
+		"name": "K. 워커",
+		"count": "2467"
+	}
+]

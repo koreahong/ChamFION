@@ -19,6 +19,9 @@
     <link rel="stylesheet" href='{% static "css/style.css" %}'>
     <link rel="stylesheet" href='{% static "css/formation.css" %}'>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="jquery-1.8.1.js"></script> 
+    <script type="text/javascript" src="ajax-sample.js"></script>
        <script>
              // using jQuery csrftoken
               function getCookie(name) {
@@ -51,6 +54,9 @@
                 });
               });
         </script>
+        
+
+	   
     <style>
       .win{
         margin: 8px;
@@ -72,27 +78,89 @@
         background-color:#b6b6b6;
       }
 
-      table {
-        border-collapse: collapse;
-        width: 100%;
+     .table{
+     	width: 1200px;
       }
+     #detail_table button{
+     	border: 1px solid #D7D98A;
+        background-color: rgba(0,0,0,0); 
+        color: #D7D98A; padding: 5px; 
+        }
+       
+     #detail_table button:hover{ 
+     	color:white; 
+     	background-color: #D7D98A; 
+     	}
+     	
+     #detail_table_th button{
+     	border: 0px solid #D7D98A;
+        background-color: rgba(0,0,0,0); 
+        color: #D7D98A; padding: 5px; 
+        }
+       
+     #detail_table_th button:hover{ 
+     	color:white; 
+     	background-color: #D7D98A; 
+     	}	
+     	
+    
+     #layerpop{
+     	margin: 10%;
+     	text-align: center;
+     	vertical-align: middle;
+		width : auto;
+		height : auto;
+     }
+     
+     th{
+     color:#7971ea;
+     }
+     
+     .site-section{
+	background:#1C202A;
+	}
+     
+     .slide-1:before{
+	   content: "";
+	   position: absolute;
+	   height: 100%;
+	   width: 100%;
+	   opacity: .9;
+	   border-bottom-right-radius: 0px;
+	   background : #0E1015;
+	       
+     }
+     
+	 .sticky-wrapper.is-sticky .site-navbar .site-menu > li > a{
+	  color:#fff;
+	  }
+	 .sticky-wrapper.is-sticky .site-navbar .site-logo a{
+	 color:#fff;
+	 }
 
-      th, td {
-        text-align: left;
-        padding: 8px;
-      }
-
-      tr:nth-child(even){background-color: #f2f2f2}
-      tr:hover {background-color:#f5f5f5;}
-      th {
-        background-color: #4CAF50;  
-        color: white;
-      }
+	body
+	{
+	color:#fff;
+	}
+	
+	.modal-content{
+	background-color:#1C202A;
+	}
+	
+	.text-black {
+    color: #fff !important;
+	}
+	
+	.sticky-wrapper.is-sticky .site-navbar {
+    background: #0E1015;
+	}
+	
+	
     </style>
     
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  
+  	
   <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -132,9 +200,8 @@
           </div>
         </div>
       </div>
-      
     </header>
-
+    
     <div class="intro-section single-cover" id="home-section">
       <div class="slide-1 "  data-stellar-background-ratio="0.5">
         <div class="container">
@@ -164,19 +231,438 @@
         </div>
       </div>
     </div>
-    
-    <div class="site-section">
-      <div class="container" style = "max-width: 1000px; margin-left:150px;" >
+ 
+    <div class="site-section" >
+      <div class="container" style = "margin: auto;" >
         <div class="row">
           <div class="col-lg-8 mb-5">
             <div class="mb-5">
              
-              <h3 class="text-black">경기 기록 </h3> 
-              <div id = "analysisTable"></div>
-						   
+              <h3 class="text-black">경기 기록 </h3>
+               
+     
+			<table id = "detail_table" class="table table-hover" style="text-align: center; margin-top:50px">
+			  <thead>
+			    <tr>
+			      <th scope="col" width="20%">매치 일시</th>
+			      <th scope="col" width="15%">내 팀</th>
+			      <th scope="col" width="30%">스코어</th>
+			      <th scope="col" width="15%">상대 팀</th>
+			      <th scope="col" width="10%">결과</th>
+			      <th scope="col" width="10%"></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
+			
+<!-- ######################################################################################################################################################################################################### -->
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop0" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 정보</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal0" class="table table-hover" style="text-align: center;">
+							<thead>
+							
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal1" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal2" class="table table-hover" style="text-align: center;">
+							<thead>
+							
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal3" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal4" class="table table-hover" style="text-align: center;">
+							<thead>
+							
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal5" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop6" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal6" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop7" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal7" class="table table-hover" style="text-align: center;">
+							<thead>
+							
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop8" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal8" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop9" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal9" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop10" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal10" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop11" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal11" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop12" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal12" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop13" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal13" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop14" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal14" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop15" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal15" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop16" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal16" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop17" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal17" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop18" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal18" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal fade bs-example-modal-lg" id="layerpop19" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			   	<div class="modal-dialog" style="max-width: 100%; width: auto; display: table;">
+			   		<div class="modal-content"'>
+					   	<div class="modal-header">
+					        <h4 class="modal-title">상세 경기</h4>
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					    </div>
+					    <div class="modal-body">
+					     <table id = "detail_modal19" class="table table-hover" style="text-align: center;">
+							<thead>
+								
+							</thead>
+							<tbody>
+							</tbody>
+						 </table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+<!-- ######################################################################################################################################################################################################### -->			
+			
             </div> <!--  mb-5 -->
 
-    
             </div>
             
             <div class="col-lg-2">         
@@ -185,54 +671,50 @@
             <div class="col-lg-2">
             
             </div> <!-- right block end -->
-
-
-
           </div> <!--  row end -->
   
         </div>
       </div>  
     </div>
+    
+    
 
+    <script  src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        function doDisplay(detailnum){
 
-        <script>
-            function doDisplay(detailnum){
+          $(detailnum).toggle();
+        }
 
-              $(detailnum).toggle();
-            }
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
 
-            function getParameterByName(name) {
-                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                    results = regex.exec(location.search);
-                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-            }
+        function link(url) {
+          var uid = getParameterByName('ID');
+          var form = document.createElement("form");
+          var parm = new Array();
+          var input = new Array();
 
-            function link(url) {
+          form.action = '../'+url+'/';
+          form.method = "get";
 
-              var uid = getParameterByName('ID');
-              
-              var form = document.createElement("form");
-              var parm = new Array();
-              var input = new Array();
+          parm.push( ['ID', uid] );
 
-              form.action = '../'+url+'/';
-              form.method = "get";
-
-              parm.push( ['ID', uid] );
-
-              for (var i = 0; i < parm.length; i++) {
-                  input[i] = document.createElement("input");
-                  input[i].setAttribute("type", "hidden");
-                  input[i].setAttribute('name', parm[i][0]);
-                  input[i].setAttribute("value", parm[i][1]);
-                  form.appendChild(input[i]);
-              }
-              document.body.appendChild(form);
-              form.submit();
-            };
-
-          $( document ).ready(function() {
+          for (var i = 0; i < parm.length; i++) {
+              input[i] = document.createElement("input");
+              input[i].setAttribute("type", "hidden");
+              input[i].setAttribute('name', parm[i][0]);
+              input[i].setAttribute("value", parm[i][1]);
+              form.appendChild(input[i]);
+          }
+          document.body.appendChild(form);
+          form.submit();
+        };
+        $( document ).ready(function() {
             var uid = getParameterByName('ID');
 
             $.ajax({
@@ -248,9 +730,6 @@
                   $.each(data, function (index, entry) {
                     //console.log(index, entry);
                   });
-                  $('#analysisTable').append("닉네임 : "+data.nickname+"<br>");
-                  $('#analysisTable').append("레벨 :"+ +data.level+"<br>");
-
                   matches(data.accessId);
                 },
                 error: function () { alert("아이디를 확인해 주세요"); }
@@ -266,98 +745,265 @@
                   request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
               },
               success: function (data) {
-              //받아온 JSON을 테이블에 출력
-               $.each(data, function (index, entry) {
-                  //console.log(index, entry);
-                  matchdetail(index, entry);
+            	  
+              $.each(data, function (index, entry) {
+            	  drawTable(index, entry);
+            	  drawModal(index, entry);
+                  
               });
               },
               error: function () { alert("아이디를 확인해 주세요"); }
               });
-          }
+          } 
+       
 
-          function matchdetail(i, matchID){
-            $.ajax({
-              url: "https://api.nexon.co.kr/fifaonline4/v1.0/matches/" + matchID,
-              dataType: "json",
-              beforeSend : function(request){
-                  request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
-                  request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-              },
-              success: function (data) {
-              //받아온 JSON을 테이블에 출력
-              /*  $.each(data, function (index, entry) {
-                  console.log(index, entry);
-              }); */
-               $('#analysisTable').append("<div id ="+i+">");
+          
+          function drawTable(i, matchID) {
+        	  $.ajax({
+	              url: "https://api.nexon.co.kr/fifaonline4/v1.0/matches/" + matchID,
+	              dataType: "json",
+	              beforeSend : function(request){
+	                  request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
+	                  request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	              },
+	              success: function (data) {
+	            	  
+	            	 
+	            	  $('#detail_table').append("<tr id =" + i +">");
+	            	  if(data.matchInfo[0].nickname == getParameterByName('ID')){
+	                  	$('#'+i).append("<td>"+data.matchDate.replace(/[^0-9,^:-]/gi,'').substr(0,10)+" "+data.matchDate.replace(/[^0-9,^:-]/gi,'').substr(10,5)+"</td>"+"<td>"+data.matchInfo[0].nickname+"</td>"+"<td>"+data.matchInfo[0].shoot.goalTotal+'-'+data.matchInfo[1].shoot.goalTotal+"</td>"+"<td>"+data.matchInfo[1].nickname+"</td>"+"<td>"+data.matchInfo[0].matchDetail.matchResult+"</td>");
+	            	  	$('#'+i).append("<td>"+"<button class ="+ i +" "+"data-target=" +"'#layerpop"+i+"'"+" "+"data-toggle=" +"'modal'" +">"+"상세정보" +"</button>"+"</td>")
+	            	  }
+	            	  else{
+	            		$('#'+i).append("<td>"+data.matchDate.replace(/[^0-9,^:-]/gi,'').substr(0,10)+" "+data.matchDate.replace(/[^0-9,^:-]/gi,'').substr(10,5)+"</td>"+"<td>"+data.matchInfo[1].nickname+"</td>"+"<td>"+data.matchInfo[1].shoot.goalTotal+'-'+data.matchInfo[1].shoot.goalTotal+"</td>"+"<td>"+data.matchInfo[0].nickname+"</td>"+"<td>"+data.matchInfo[1].matchDetail.matchResult+"</td>"); 
+	            		$('#'+i).append("<td>"+"<button class ="+ i +" "+"data-target=" +"'#layerpop"+i+"'"+" "+"data-toggle=" +"'modal'" +">"+"상세정보" +"</button>"+"</td>")
+	            	  }
+	            	  
+		      		},
+		      	  error : function(){
+		              alert("error");
+		          }
+	              });
+            }
+          
 
-               $('#'+i).append(data.matchInfo[0].nickname+" ");
-               $('#'+i).append(data.matchInfo[0].shoot.goalTotal+"&nbsp;");
-               
-               $('#'+i).append(": " + data.matchInfo[1].shoot.goalTotal+"&nbsp;" );
-               $('#'+i).append(data.matchInfo[1].nickname);
-               $('#'+i).append("<a href=\"javascript:doDisplay(detail"+i+");\"> 자세히 </a>");
-               $('#'+i).append("<br>");
-               $('#'+i).append("<div id=\"detail"+i+"\"style=\"display: none;\" >");
-                
-               $('#detail'+i).append(data.matchInfo[0].shoot.shootTotal+"&nbsp;"+"슈팅"+"&nbsp;");
-               $('#detail'+i).append(data.matchInfo[1].shoot.shootTotal +"<br>");
-               $('#detail'+i).append(data.matchInfo[0].shoot.effectiveShootTotal+"&nbsp;"+"유효슈팅"+"&nbsp;");
-               $('#detail'+i).append(data.matchInfo[1].shoot.effectiveShootTotal +"<br>");
-               $('#detail'+i).append(data.matchInfo[0].matchDetail.possession+"&nbsp;"+"점유율"+"&nbsp;");
-               $('#detail'+i).append(data.matchInfo[1].matchDetail.possession +"<br>");
-               $('#detail'+i).append(data.matchInfo[0].pass.passTry+"&nbsp;"+"패스 횟수"+"&nbsp;");
-               $('#detail'+i).append(data.matchInfo[1].pass.passTry +"<br>");
-               $('#detail'+i).append(data.matchInfo[0].pass.passSuccess+"&nbsp;"+"패스 성공횟수"+"&nbsp;");
-               $('#detail'+i).append(data.matchInfo[1].pass.passSuccess +"<br>");
-               $('#detail'+i).append(data.matchInfo[0].matchDetail.foul+"&nbsp;"+"파울"+"&nbsp;");
-               $('#detail'+i).append(data.matchInfo[1].matchDetail.foul +"<br>");
-               $('#detail'+i).append(data.matchInfo[0].matchDetail.yellowCards+"&nbsp;"+"옐로우 카드"+"&nbsp;");
-               $('#detail'+i).append(data.matchInfo[1].matchDetail.yellowCards +"<br>");
-               $('#detail'+i).append(data.matchInfo[0].matchDetail.redCards+"&nbsp;"+"레드 카드"+"&nbsp;");
-               $('#detail'+i).append(data.matchInfo[1].matchDetail.redCards +"<br>");
-               $('#detail'+i).append(data.matchInfo[0].matchDetail.cornerKick+"&nbsp;"+"코너킥"+"&nbsp;");
-               $('#detail'+i).append(data.matchInfo[1].matchDetail.cornerKick +"<br>");
-               $('#detail'+i).append("</div>");
-               
-              // $('#'+i).append(data.matchInfo[1].matchDetail.matchResult +"<br>");
-            
-               $('#'+i).append("</div><br>");
-              
-               if(data.matchInfo[0].nickname == getParameterByName('ID')){
-                 if(data.matchInfo[0].matchDetail.matchResult =="승"){
-                   $('#'+i).wrapAll("<div class='win'></div>")
-                 }else if(data.matchInfo[0].matchDetail.matchResult =="패"){
-                   $('#'+i).wrapAll("<div class='defeat'></div>")
-                 }else{
-                   $('#'+i).wrapAll("<div class='draw'></div>")
-                 }
-               }else{
-                 if(data.matchInfo[1].matchDetail.matchResult =="승"){
-                   $('#'+i).wrapAll("<div class='win'></div>")
-                 }else if(data.matchInfo[1].matchDetail.matchResult =="패"){
-                   $('#'+i).wrapAll("<div class='defeat'></div>")
-                 }else{
-                   $('#'+i).wrapAll("<div class='draw'></div>")
-                 }
+          
+          
+          function drawModal(i, matchID) {
+        	  $.ajax({
+	              url: "https://api.nexon.co.kr/fifaonline4/v1.0/matches/" + matchID,
+	              dataType: "json",
+	              beforeSend : function(request){
+	                  request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
+	                  request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	              },
+	              success: function (data) {
+	            	 
+	            	  if(data.matchInfo[0].nickname == getParameterByName('ID')){
+	            		$('#detail_modal'+i +" > thead").append("<th scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].nickname+"</th>")
+	            		$('#detail_modal'+i +" > thead").append("<th scope="+"'col '"+"width="+"'30% '"+">"+"항목"+"</th>")
+	            		$('#detail_modal'+i +" > thead").append("<th scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].nickname+"</th>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody1'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].shoot.goalTotal+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody1").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"골"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody1").append("<td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].shoot.goalTotal+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody2'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].shoot.shootTotal+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody2").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"슛"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody2").append("<td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].shoot.shootTotal+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody3'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].shoot.effectiveShootTotal+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody3").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"유효슛"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody3").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[1].shoot.effectiveShootTotal+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody4'><td scope="+"'col '"+"width="+"'35% '"+">"+(data.matchInfo[0].shoot.goalTotal/data.matchInfo[0].shoot.shootTotal*100).toFixed(1) +"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody4").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"슛 성공률(%)"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody4").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ (data.matchInfo[1].shoot.goalTotal/data.matchInfo[1].shoot.shootTotal*100).toFixed(1)+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody5'><td scope="+"'col '"+"width="+"'35% '"+">"+(data.matchInfo[0].pass.passSuccess/data.matchInfo[0].pass.passTry*100).toFixed(1)+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody5").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"패스 성공률(%)"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody5").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ (data.matchInfo[1].pass.passSuccess/data.matchInfo[1].pass.passTry*100).toFixed(1)+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody6'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].matchDetail.possession+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody6").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"점유율(%)"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody6").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[1].matchDetail.possession+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody7'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].matchDetail.cornerKick+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody7").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"코너킥"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody7").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[1].matchDetail.cornerKick+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody8'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].defence.tackleTry+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody8").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"태클"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody8").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[1].defence.tackleTry +"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody9'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].matchDetail.foul+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody9").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"파울"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody9").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[1].matchDetail.foul+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody10'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].matchDetail.yellowCards+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody10").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"경고"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody10").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[1].matchDetail.yellowCards+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody11'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].matchDetail.redCards+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody11").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"퇴장"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody11").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[1].matchDetail.redCards+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody12'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].matchDetail.injury+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody12").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"부상"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody12").append("<td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].matchDetail.injury+"</td>")
+	            		
+	            		
+	            	  }
+	            	  else{
+            		    $('#detail_modal'+i +" > thead").append("<th scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].nickname+"</th>")
+	            		$('#detail_modal'+i +" > thead").append("<th scope="+"'col '"+"width="+"'30% '"+">"+"항목"+"</th>")
+	            		$('#detail_modal'+i +" > thead").append("<th scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].nickname+"</th>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody1'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].shoot.goalTotal+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody1").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"골"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody1").append("<td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].shoot.goalTotal+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody2'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].shoot.shootTotal+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody2").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"슛"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody2").append("<td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].shoot.shootTotal+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody3'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].shoot.effectiveShootTotal+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody3").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"유효슛"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody3").append("<td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].shoot.effectiveShootTotal+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody4'><td scope="+"'col '"+"width="+"'35% '"+">"+(data.matchInfo[1].shoot.goalTotal/data.matchInfo[1].shoot.shootTotal*100).toFixed(1)+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody4").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"슛 성공률(%)"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody4").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ (data.matchInfo[0].shoot.goalTotal/data.matchInfo[0].shoot.shootTotal*100).toFixed(1)+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody5'><td scope="+"'col '"+"width="+"'35% '"+">"+(data.matchInfo[0].pass.passSuccess/data.matchInfo[1].pass.passTry*100).toFixed(1)+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody5").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"패스 성공률(%)"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody5").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ (data.matchInfo[1].pass.passSuccess/data.matchInfo[0].pass.passTry*100).toFixed(1)+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody6'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].matchDetail.possession+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody6").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"점유율(%)"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody6").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[0].matchDetail.possession+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody7'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].matchDetail.cornerKick+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody7").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"코너킥"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody7").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[0].matchDetail.cornerKick+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody8'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].defence.tackleTry+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody8").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"태클"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody8").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[0].defence.tackleTry +"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody9'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].matchDetail.foul+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody9").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"파울"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody9").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[0].matchDetail.foul+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody10'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].matchDetail.yellowCards+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody10").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"경고"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody10").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[0].matchDetail.yellowCards+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody11'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].matchDetail.redCards+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody11").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"퇴장"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody11").append("<td scope="+"'col '"+"width="+"'35% '"+">"+ data.matchInfo[0].matchDetail.redCards+"</td>")
+	            		
+	            		$('#detail_modal'+i +" > tbody").append("<tr id =" + "'tbody12'><td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[1].matchDetail.injury+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody12").append("<td scope="+"'col '"+"width="+"'30% '"+">"+"부상"+"</td>")
+	            		$('#detail_modal'+i +" > tbody > #tbody12").append("<td scope="+"'col '"+"width="+"'35% '"+">"+data.matchInfo[0].matchDetail.injury+"</td>")
+	            		
+	            		
+	            		
+	            	  }
 
-               }
-
-               
-
-              //$('#analysisTable').wrapAll("<div class='win'></div>")
-
-
-              console.log(data.matchInfo[0].nickname);
-              console.log(data.matchInfo[1].nickname);
-              console.log(data.matchInfo[1].matchDetail.matchResult);
-              },
-              error: function () { alert("아이디를 확인해 주세요"); }
-              });
-          }
-
+	              },
+		      	  error : function(){
+		              alert("error");
+		          }
+	              });
+            }
+          
+          function drawTable(i, matchID) {
+        	  $.ajax({
+	              url: "https://api.nexon.co.kr/fifaonline4/v1.0/matches/" + matchID,
+	              dataType: "json",
+	              beforeSend : function(request){
+	                  request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
+	                  request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	              },
+	              success: function (data) {
+	            	  
+	            	 
+	            	  $('#detail_table').append("<tr id =" + i +">");
+	            	  if(data.matchInfo[0].nickname == getParameterByName('ID')){
+	                  	$('#'+i).append("<td>"+data.matchDate.replace(/[^0-9,^:-]/gi,'').substr(0,10)+" "+data.matchDate.replace(/[^0-9,^:-]/gi,'').substr(10,5)+"</td>"+"<td>"+data.matchInfo[0].nickname+"</td>"+"<td>"+data.matchInfo[0].shoot.goalTotal+'-'+data.matchInfo[1].shoot.goalTotal+"</td>"+"<td>"+data.matchInfo[1].nickname+"</td>"+"<td>"+data.matchInfo[0].matchDetail.matchResult+"</td>");
+	            	  	$('#'+i).append("<td>"+"<button class ="+ i +" "+"data-target=" +"'#layerpop"+i+"'"+" "+"data-toggle=" +"'modal'" +">"+"상세정보" +"</button>"+"</td>")
+	            	  }
+	            	  else{
+	            		$('#'+i).append("<td>"+data.matchDate.replace(/[^0-9,^:-]/gi,'').substr(0,10)+" "+data.matchDate.replace(/[^0-9,^:-]/gi,'').substr(10,5)+"</td>"+"<td>"+data.matchInfo[1].nickname+"</td>"+"<td>"+data.matchInfo[1].shoot.goalTotal+'-'+data.matchInfo[1].shoot.goalTotal+"</td>"+"<td>"+data.matchInfo[0].nickname+"</td>"+"<td>"+data.matchInfo[1].matchDetail.matchResult+"</td>"); 
+	            		$('#'+i).append("<td>"+"<button class ="+ i +" "+"data-target=" +"'#layerpop"+i+"'"+" "+"data-toggle=" +"'modal'" +">"+"상세정보" +"</button>"+"</td>")
+	            	  }
+	            	  
+		      		},
+		      	  error : function(){
+		              alert("error");
+		          }
+	              });
+            }
+          
+          
+          google.charts.load('current', {'packages':['bar']});
+	      google.charts.setOnLoadCallback(drawChart);
+	      
+			
+	      function drawChart(i, matchID) {
+	    	  $.ajax({
+	              url: "https://api.nexon.co.kr/fifaonline4/v1.0/matches/" + matchID,
+	              dataType: "json",
+	              beforeSend : function(request){
+	                  request.setRequestHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTg0NTcxODkzOSIsImF1dGhfaWQiOiIyIiwidG9rZW5fdHlwZSI6IkFjY2Vzc1Rva2VuIiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsIlgtQXBwLVJhdGUtTGltaXQiOiIyMDAwMDoxMCIsIm5iZiI6MTU2ODcxMTE3OSwiZXhwIjoxNjMxNzgzMTc5LCJpYXQiOjE1Njg3MTExNzl9.UWV1Ldv4oGK6YYjQdjhrq8y2Hn__lwOy5svf8XN4o8U");
+	                  request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	              },
+	              success: function (data) {
+	            	  if(data.matchInfo[0].nickname == getParameterByName('ID')){
+		            	  var data = google.visualization.arrayToDataTable([
+		            		['', data.matchInfo[0].nickname, data.matchInfo[1].nickname],
+		                    ['슈팅', data.matchInfo[0].shoot.shootTotal, data.matchInfo[1].shoot.shootTotal],
+		                    ['유효슈팅', data.matchInfo[0].shoot.effectiveShootTota, data.matchInfo[1].shoot.effectiveShootTota],
+		                    ['점유율', data.matchInfo[0].matchDetail.possession, data.matchInfo[1].matchDetail.possession],
+		                    ['패스횟수', data.matchInfo[0].pass.passTry, data.matchInfo[1].pass.passTry],
+		                    ['패스 성공횟수', data.matchInfo[0].pass.passSuccess, data.matchInfo[1].pass.passSuccess],
+		                    ['파울', data.matchInfo[0].matchDetail.foul, data.matchInfo[1].matchDetail.foul],
+		                    ['옐로우 카드', data.matchInfo[0].matchDetail.yellowCards, data.matchInfo[1].matchDetail.yellowCards],
+		                    ['레드 카드', data.matchInfo[0].matchDetail.redCards, data.matchInfo[1].matchDetail.redCards],
+		                    ['코너킥', data.matchInfo[0].matchDetail.cornerKick, data.matchInfo[1].matchDetail.cornerKick]
+			              ]);
+	            	  }
+	            	  else{
+	            		  var data = google.visualization.arrayToDataTable([
+			            		['', data.matchInfo[1].nickname, data.matchInfo[0].nickname],
+			                    ['슈팅', data.matchInfo[1].shoot.shootTotal, data.matchInfo[0].shoot.shootTotal],
+			                    ['유효슈팅', data.matchInfo[1].shoot.effectiveShootTota, data.matchInfo[0].shoot.effectiveShootTota],
+			                    ['점유율', data.matchInfo[1].matchDetail.possession, data.matchInfo[0].matchDetail.possession],
+			                    ['패스횟수', data.matchInfo[1].pass.passTry, data.matchInfo[0].pass.passTry],
+			                    ['패스 성공횟수', data.matchInfo[1].pass.passSuccess, data.matchInfo[0].pass.passSuccess],
+			                    ['파울', data.matchInfo[1].matchDetail.foul, data.matchInfo[0].matchDetail.foul],
+			                    ['옐로우 카드', data.matchInfo[1].matchDetail.yellowCards, data.matchInfo[1].matchDetail.yellowCards],
+			                    ['레드 카드', data.matchInfo[1].matchDetail.redCards, data.matchInfo[0].matchDetail.redCards],
+			                    ['코너킥', data.matchInfo[1].matchDetail.cornerKick, data.matchInfo[0].matchDetail.cornerKick]
+				              ]);
+	            	  }
+			        var options = {
+			          chart: {
+			          },
+			          bars: 'horizontal' // Required for Material Bar Charts.
+			        };
+			
+			        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+			
+			        chart.draw(data, google.charts.Bar.convertOptions(options));
+		      		}
+	              });
+	           
+	              }
+	         
         </script>
-
+       
 
 
 

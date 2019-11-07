@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "207214100",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "150900"
+	},
+	{
+		"spId": "207214100",
+		"spGrade": "4",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "30466"
+	},
+	{
+		"spId": "207214100",
+		"spGrade": "3",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "20551"
+	},
+	{
+		"spId": "210195864",
+		"spGrade": "3",
+		"seasonName": "GR",
+		"name": "P. 포그바",
+		"count": "16549"
+	},
+	{
+		"spId": "211192985",
+		"spGrade": "1",
+		"seasonName": "19TOTY",
+		"name": "K. 더브라위너",
+		"count": "13347"
+	},
+	{
+		"spId": "210195864",
+		"spGrade": "1",
+		"seasonName": "GR",
+		"name": "P. 포그바",
+		"count": "13088"
+	},
+	{
+		"spId": "214190045",
+		"spGrade": "1",
+		"seasonName": "TC",
+		"name": "J. 크라위프",
+		"count": "12938"
+	},
+	{
+		"spId": "214028130",
+		"spGrade": "1",
+		"seasonName": "TC",
+		"name": "호나우지뉴",
+		"count": "9289"
+	},
+	{
+		"spId": "210195864",
+		"spGrade": "5",
+		"seasonName": "GR",
+		"name": "P. 포그바",
+		"count": "8620"
+	},
+	{
+		"spId": "214195864",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "P. 포그바",
+		"count": "8598"
+	}
+]

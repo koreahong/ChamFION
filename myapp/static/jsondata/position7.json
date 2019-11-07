@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "298199236",
+		"spGrade": "6",
+		"seasonName": "kfa",
+		"name": "홍철",
+		"count": "72826"
+	},
+	{
+		"spId": "298199236",
+		"spGrade": "5",
+		"seasonName": "kfa",
+		"name": "홍철",
+		"count": "56352"
+	},
+	{
+		"spId": "298199236",
+		"spGrade": "7",
+		"seasonName": "kfa",
+		"name": "홍철",
+		"count": "46567"
+	},
+	{
+		"spId": "298199236",
+		"spGrade": "8",
+		"seasonName": "kfa",
+		"name": "홍철",
+		"count": "29670"
+	},
+	{
+		"spId": "210204884",
+		"spGrade": "5",
+		"seasonName": "GR",
+		"name": "B. 멘디",
+		"count": "27889"
+	},
+	{
+		"spId": "300191043",
+		"spGrade": "8",
+		"seasonName": "18",
+		"name": "알렉스 산드루",
+		"count": "22023"
+	},
+	{
+		"spId": "300191043",
+		"spGrade": "7",
+		"seasonName": "18",
+		"name": "알렉스 산드루",
+		"count": "20262"
+	},
+	{
+		"spId": "300191043",
+		"spGrade": "6",
+		"seasonName": "18",
+		"name": "알렉스 산드루",
+		"count": "19602"
+	},
+	{
+		"spId": "207205988",
+		"spGrade": "6",
+		"seasonName": "TT",
+		"name": "L. 쇼",
+		"count": "19341"
+	},
+	{
+		"spId": "300189332",
+		"spGrade": "5",
+		"seasonName": "18",
+		"name": "조르디 알바",
+		"count": "18995"
+	}
+]

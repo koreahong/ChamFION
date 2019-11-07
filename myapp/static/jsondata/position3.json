@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "210232270",
+		"spGrade": "6",
+		"seasonName": "GR",
+		"name": "T. 포수-멘사",
+		"count": "45756"
+	},
+	{
+		"spId": "300188377",
+		"spGrade": "6",
+		"seasonName": "18",
+		"name": "K. 워커",
+		"count": "42400"
+	},
+	{
+		"spId": "210232270",
+		"spGrade": "5",
+		"seasonName": "GR",
+		"name": "T. 포수-멘사",
+		"count": "40181"
+	},
+	{
+		"spId": "210235212",
+		"spGrade": "6",
+		"seasonName": "GR",
+		"name": "A. 하키미",
+		"count": "37482"
+	},
+	{
+		"spId": "300188377",
+		"spGrade": "7",
+		"seasonName": "18",
+		"name": "K. 워커",
+		"count": "32942"
+	},
+	{
+		"spId": "210235212",
+		"spGrade": "5",
+		"seasonName": "GR",
+		"name": "A. 하키미",
+		"count": "31057"
+	},
+	{
+		"spId": "300188377",
+		"spGrade": "8",
+		"seasonName": "18",
+		"name": "K. 워커",
+		"count": "30544"
+	},
+	{
+		"spId": "210240130",
+		"spGrade": "6",
+		"seasonName": "GR",
+		"name": "에데르 밀리탕",
+		"count": "30258"
+	},
+	{
+		"spId": "300188377",
+		"spGrade": "5",
+		"seasonName": "18",
+		"name": "K. 워커",
+		"count": "27266"
+	},
+	{
+		"spId": "210231685",
+		"spGrade": "6",
+		"seasonName": "GR",
+		"name": "R. 피에르-가브리엘",
+		"count": "26179"
+	}
+]

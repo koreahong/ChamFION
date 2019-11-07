@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "201001419",
+		"spGrade": "5",
+		"seasonName": "NHD",
+		"name": "P. 비에이라",
+		"count": "1555"
+	},
+	{
+		"spId": "201001419",
+		"spGrade": "6",
+		"seasonName": "NHD",
+		"name": "P. 비에이라",
+		"count": "850"
+	},
+	{
+		"spId": "201001620",
+		"spGrade": "5",
+		"seasonName": "NHD",
+		"name": "E. 프티",
+		"count": "434"
+	},
+	{
+		"spId": "207214098",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "F. 레이카르트",
+		"count": "395"
+	},
+	{
+		"spId": "210208333",
+		"spGrade": "5",
+		"seasonName": "GR",
+		"name": "E. 잔",
+		"count": "368"
+	},
+	{
+		"spId": "207001419",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "P. 비에이라",
+		"count": "345"
+	},
+	{
+		"spId": "214209499",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "파비뉴",
+		"count": "341"
+	},
+	{
+		"spId": "207001183",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "F. 칸나바로",
+		"count": "305"
+	},
+	{
+		"spId": "214222481",
+		"spGrade": "5",
+		"seasonName": "TC",
+		"name": "L. 블랑",
+		"count": "298"
+	},
+	{
+		"spId": "201001109",
+		"spGrade": "5",
+		"seasonName": "NHD",
+		"name": "P. 말디니",
+		"count": "293"
+	}
+]

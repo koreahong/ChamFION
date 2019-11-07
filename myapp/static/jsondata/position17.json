@@ -1,0 +1,72 @@
+﻿[
+	{
+		"spId": "207214100",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "7189"
+	},
+	{
+		"spId": "295200104",
+		"spGrade": "5",
+		"seasonName": "K19",
+		"name": "손흥민",
+		"count": "4623"
+	},
+	{
+		"spId": "207214100",
+		"spGrade": "4",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "2622"
+	},
+	{
+		"spId": "214028130",
+		"spGrade": "3",
+		"seasonName": "TC",
+		"name": "호나우지뉴",
+		"count": "2567"
+	},
+	{
+		"spId": "211192985",
+		"spGrade": "1",
+		"seasonName": "19TOTY",
+		"name": "K. 더브라위너",
+		"count": "2450"
+	},
+	{
+		"spId": "211231747",
+		"spGrade": "1",
+		"seasonName": "19TOTY",
+		"name": "K. 음바페",
+		"count": "2096"
+	},
+	{
+		"spId": "210231747",
+		"spGrade": "3",
+		"seasonName": "GR",
+		"name": "K. 음바페",
+		"count": "2066"
+	},
+	{
+		"spId": "207192985",
+		"spGrade": "5",
+		"seasonName": "TT",
+		"name": "K. 더브라위너",
+		"count": "2041"
+	},
+	{
+		"spId": "207214100",
+		"spGrade": "3",
+		"seasonName": "TT",
+		"name": "R. 굴리트",
+		"count": "1994"
+	},
+	{
+		"spId": "214028130",
+		"spGrade": "1",
+		"seasonName": "TC",
+		"name": "호나우지뉴",
+		"count": "1954"
+	}
+]
