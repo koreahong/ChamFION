@@ -226,7 +226,6 @@ def Mysquadform(request):
             
         k = 3;
         while nlist[k:k+1] == '0':
-            print(k)
             k = k + 1
             
         
@@ -267,7 +266,7 @@ def Mysquadform(request):
         html +="                       <div id =\"formationPlayerspp"+ request.POST['list['+str(i)+'][spPosition]'] +"\">"
         html +="                            <img src="+backurl+" width=\"120\" height=\"120\" onclick=\"recoplayer("+request.POST['list['+str(i)+'][spPosition]']+")\">"
         html +="                            <img style=\"position: absolute; top: 14%;left:35%;\" src=\"http://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/playersAction/p"+nlist+".png?rd=201910290610\" onerror=\"this.src='https://fo4.dn.nexoncdn.co.kr/live/externalAssets/common/players/p"+spID+".png?rd=201910290610'\" width=\"72\" height=\"72\" onclick=\"recoplayer("+request.POST['list['+str(i)+'][spPosition]']+")\">"
-        html +="                            <img style=\"position: absolute; top: 60%;left:11%;\" src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+Mark+".png\" width=\"15px\" height=\"12px\" onclick=\"searchplayer(i)\">"
+        html +="                            <img style=\"position: absolute; top: 57.5%;left:10%;\" src=\"http://s.nx.com/s2/game/fo4/obt/externalAssets/season/"+Mark+"_big.png\" width=\"18px\" height=\"18px\" onclick=\"searchplayer(i)\">"
         html +="                            <div style=\"width:100px; top:50%; left:50%; position: absolute; transform:translate(-50%,50%)\"><p style=\"text-align:center; font-family:맑은고딕;\"><font size=\"1.8\" color=\"black\">"+ Name +"</font></p></div>"
         html +="                            <div class=\""+gradecolor+"\"><p ><font class=\"gradefont\" size=\"1.8\" color=\"black\">"+ glist +"</font></p></div>"
         html +="                        </div>"        
@@ -297,6 +296,7 @@ def recommend(request):
     ]
     
     
+    
     '''    paytotal = 0
     for i in range(0,11):
         temp = int(request.POST['list['+str(i)+'][spId]'])
@@ -313,23 +313,15 @@ def recommend(request):
     sortedlist = (sorted(list_tuples, key=lambda list: list[2]))
     
     
-    print('==sort==')
-    print(sortedlist)
     totalpay =0
     totalprice =0
     for i in range(0,10):
         
-        print('==='+str(i)+'===price')
-        print('please')
         totalpay += MLExecution_549.getprice(request.POST['list['+str(i)+'][spId]'], request.POST['list['+str(i)+'][spGrade]']).iloc[0]['pay']
         totalprice += MLExecution_549.getprice(request.POST['list['+str(i)+'][spId]'], request.POST['list['+str(i)+'][spGrade]']).iloc[0]['price']
-        print('=====================')
-    print('==total==')
     totalpay = int(totalpay)
     totalprice = int(totalprice/100000000)
     
-    print(totalpay)
-    print(totalprice)
     after_tuples = [ 
         (totalpay, float('NaN'), 'pay_total'),
         (totalprice, float('NaN'), 'price_total'),
@@ -338,26 +330,19 @@ def recommend(request):
     
     seclist = np.vstack([sortedlist,after_tuples])
 
-    print('== np ==')
-    print(seclist)
-  
     
     sorteddf = pd.DataFrame(seclist, columns=["spId", "spGrade", "positionNum"])
     
-    sortedlist2 = sorteddf[sorteddf.positionNum != '18']
+    sortedlist2 = sorteddf[sorteddf.positionNum != request.POST['selectedposition']]
     print('==sort2==')
     print(sortedlist2)
     
     sortedlist2['spGrade']=sortedlist2['spGrade'].astype('float')
-    print('==sort3==')
-    print(sortedlist2)
       
     
     #dict_sj = json.loads(stringjson)
-    print('==check0==')
     nameList = pd.DataFrame(sortedlist2)  
     print(nameList)  
-    print('length : '+str(len(nameList)))
     
     resultvalue = MLExecution_549.useModel(nameList)
     
@@ -412,12 +397,10 @@ def recommend(request):
 
     
     
-    print(request.POST['selectedposition'])
-    print(str(int(resultvalue.iloc[0]['price'])))
     
     
     #print(sorted(request.POST[list[0]], key=itemgetter(1)))
-    context= {"fullspId":str(int(resultvalue.iloc[0]['spId'])),"Pnum":"p"+str(spID),"Season":Mark,"Name":Name,"Pay":str(int(resultvalue.iloc[0]['pay'])),"Price": str(int(resultvalue.iloc[0]['price'])) ,"spGrade":str(int(resultvalue.iloc[0]['spGrade']))},{"Pnum":"p1109","Season":"NHD","Name":"말디니","Pay":"21","OVR":"98","Mark":"NHD"},{"Pnum":"p101004231","Season":"ICON","Name":"히바우두","Pay":"25","OVR":"107","Mark":"ICON"}
+    context= {"fullspId":str(int(resultvalue.iloc[0]['spId'])),"Pnum":"p"+str(spID),"Season":Mark,"Name":Name,"Pay":str(int(resultvalue.iloc[0]['pay'])),"Price": str(int(resultvalue.iloc[0]['price'])) ,"spGrade":str(int(resultvalue.iloc[0]['spGrade'])),"Mark":Mark},{"Pnum":"p1109","Season":"NHD","Name":"말디니","Pay":"21","OVR":"98","Mark":"NHD"},{"Pnum":"p101004231","Season":"ICON","Name":"히바우두","Pay":"25","OVR":"107","Mark":"ICON"}
     return HttpResponse(json.dumps(context), "application/json")
 
 
@@ -427,13 +410,6 @@ def realrecommend():
     {'spId' : [300192119 , 300188377 , 215212218 , 214184432 , 216183277 , 207215914 , 214003647 , 215218667 , 211192985 , 215153079 , 175 , 8 , '첼시, 맨체스터 시티'],
     'spGrade' : [5, 6,1,5,1,6,4,1,1,1,None,None,None],
      'positionNum' : [0,3,6,7,9,11,12,16,18,25,'pay_total' , 'price_total' , 'teamColor']})
-    print(nameList)
-    print(type(nameList))
-    print(type(nameList.spId))
-    print(type(nameList.spGrade))
-    print(type(nameList.positionNum))
-    
-    print('length : '+str(len(nameList)))
     
     
     MLExecution_549.useModel(nameList)
